@@ -1,64 +1,64 @@
-@import '../../../global/styles.scss'; /* Import global styles */
-@import '../../../global/base.scss'; /* Import custom variables */
+@use '../../../styles/base' as base;
+@use 'sass:color'; // Import color functions
 
 /* Styling for the UI button */
 .ui-button {
 	border: none;
-	border-radius: $border-radius;
-	transition: all $transition-speed ease-in-out;
+	border-radius: base.$border-radius;
+	transition: all base.$transition-speed ease-in-out;
 	cursor: pointer;
-	font-family: $font-family;
-	background-color: $background-color;
-	color: $text-color;
+	font-family: base.$font-family;
+	background-color: base.$background-color;
+	color: base.$text-color;
 
 	&.small {
-		padding: $spacing-unit $spacing-unit * 2; /* Using SCSS variable for multiplication */
+		padding: base.$spacing-unit base.$spacing-unit * 2;
 		font-size: 0.875rem;
 	}
 
 	&.medium {
-		padding: $spacing-unit $spacing-unit * 2.5;
+		padding: base.$spacing-unit base.$spacing-unit * 2.5;
 		font-size: 1rem;
 	}
 
 	&.large {
-		padding: $spacing-unit * 1.5 $spacing-unit * 3;
+		padding: base.$spacing-unit * 1.5 base.$spacing-unit * 3;
 		font-size: 1.125rem;
 	}
 
 	&.primary {
-		background-color: $primary-color;
+		background-color: base.$primary-color;
 		color: white;
 
 		&:hover {
-			background: darken($primary-color, 10%);
+			background: color.adjust(base.$primary-color, $lightness: -10%);
 		}
 	}
 
 	&.secondary {
-		background-color: $secondary-color;
+		background-color: base.$secondary-color;
 		color: white;
 
 		&:hover {
-			background: darken($secondary-color, 10%);
+			background: color.adjust(base.$secondary-color, $lightness: -10%);
 		}
 	}
 
 	&.accent {
-		background-color: $accent-color;
+		background-color: base.$accent-color;
 		color: white;
 
 		&:hover {
-			background: darken($accent-color, 10%);
+			background: color.adjust(base.$accent-color, $lightness: -10%);
 		}
 	}
 
 	&.danger {
-		background-color: $danger-color;
+		background-color: base.$danger-color;
 		color: white;
 
 		&:hover {
-			background: darken($danger-color, 10%);
+			background: color.adjust(base.$danger-color, $lightness: -10%);
 		}
 	}
 
@@ -66,8 +66,9 @@
 		background-color: #d1d5db;
 		color: #9ca3af;
 		cursor: not-allowed;
+
 		&:hover {
-			background: darken(#d1d5db, 0%);
+			background: color.adjust(#d1d5db, $lightness: 0%);
 		}
 	}
 }

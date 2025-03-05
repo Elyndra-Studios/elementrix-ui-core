@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'elementrix-ui',
+  globalStyle: 'src/styles/styles.scss',
   outputTargets: [
     {
       type: 'dist',
@@ -19,7 +20,7 @@ export const config: Config = {
   ],
   plugins: [
     sass({
-      injectGlobalPaths: ['src/global/styles.scss'], // Ensure this path is correct
+      includePaths: ['src/styles'], // Ensure this path is correct
     }),
   ],
 };

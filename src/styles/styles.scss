@@ -1,8 +1,9 @@
+@use 'base' as base;
+
 $primary-background-color: #f0f0f0;
-$primary-font: 'Roboto', sans-serif;
+$primary-font: base.$font-family; // ✅ Use base. prefix
 
 body {
   font-family: $primary-font;
   background-color: $primary-background-color;
 }
-

@@ -1,5 +1,5 @@
 {
-  "name": "elementrix-ui",
+  "name": "@elementrix-ui/core",
   "version": "0.0.1",
   "description": "Open-source component Library",
   "main": "dist/index.cjs.js",

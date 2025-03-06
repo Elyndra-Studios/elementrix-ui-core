@@ -1,61 +1,51 @@
-@use '../../../styles/base' as base;
-@use 'sass:color';
+// Import global design tokens as CSS variables
+:host {
+  display: inline-block;
+}
 
-/* Default Button Styling */
 .elx-button {
+  font-family: var(--elx-font-family);
+  font-size: var(--elx-font-size);
+  padding: 8px 16px;
   border: none;
-  border-radius: var(--border-radius, base.$border-radius);
-  transition: all var(--transition-speed, base.$transition-speed) ease-in-out;
   cursor: pointer;
-  font-family: var(--font-family, base.$font-family);
-  padding: var(--spacing-unit, base.$spacing-unit) var(--spacing-unit, base.$spacing-unit * 2);
-  font-size: 1rem;
+  transition: background-color 0.3s ease;
 
-  &.disabled {
-    background-color: #d1d5db;
-    color: #9ca3af;
-    cursor: not-allowed;
+  &.primary {
+    background-color: var(--elx-color-primary);
+    color: #fff;
   }
-}
-
-/* Light Theme */
-[data-theme='light'] .elx-button {
-  background-color: var(--color-primary, base.$primary-color);
-  color: white;
 
   &.secondary {
-    background-color: var(--color-secondary, base.$secondary-color);
+    background-color: var(--elx-color-secondary);
+    color: #fff;
   }
 
-  &.accent {
-    background-color: var(--color-accent, base.$accent-color);
+  &.small {
+    padding: 4px 8px;
   }
 
-  &.danger {
-    background-color: var(--color-danger, base.$danger-color);
-  }
-}
-
-/* Dark Theme */
-[data-theme='dark'] .elx-button {
-  background-color: color.scale(base.$primary-color, $lightness: -20%);
-  color: white;
-
-  &.secondary {
-    background-color: color.scale(base.$secondary-color, $lightness: -20%);
+  &.medium {
+    padding: 8px 16px;
   }
 
-  &.accent {
-    background-color: color.scale(base.$accent-color, $lightness: -20%);
+  &.large {
+    padding: 12px 24px;
   }
 
-  &.danger {
-    background-color: color.scale(base.$danger-color, $lightness: -20%);
+  &.radius-small {
+    border-radius: var(--elx-radius-small);
   }
-}
 
-/* Custom Theme */
-[data-theme='custom'] .elx-button {
-  background-color: var(--custom-primary, base.$primary-color);
-  color: var(--custom-text, white);
+  &.radius-medium {
+    border-radius: var(--elx-radius-medium);
+  }
+
+  &.radius-large {
+    border-radius: var(--elx-radius-large);
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
 }

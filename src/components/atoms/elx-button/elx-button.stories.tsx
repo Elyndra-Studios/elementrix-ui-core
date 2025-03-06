@@ -1,94 +1,30 @@
-import type { Meta, StoryObj } from '@storybook/html';
+import { html } from 'lit-html';
+import { applyDesignTokens } from '../../../utils/design-tokens/design-tokens';
+import { defaultTokens } from '../../../../elementrix.config';
 
-const meta: Meta = {
-	title: 'Atoms/Button',
-	component: 'elx-button',
-	tags: ['autodocs'],
-	argTypes: {
-		size: {
-			control: { type: 'select' },
-			options: ['small', 'medium', 'large'],
-		},
-		variant: {
-			control: { type: 'select'},
-			options: ['primary', 'secondary', 'danger'],
-		},
-		disabled: {
-			control: { type: 'boolean' },
-		},
-		text: {
-			control: { type: 'text' },
-			defaultValue: 'Button Text',
-		},
-		theme: {
-			control: { type: 'select' },
-			options: ['light', 'dark', 'custom'],
-			defaultValue: 'light',
-		},
-		customTheme: {
-			control: { type: 'text' },
-			defaultValue: '',
-			description: 'URL to custom theme stylesheet',
-		},
-	},
+export default {
+  title: 'Components/Button',
+  component: 'elx-button',
+  argTypes: {
+    variant: { control: 'select', options: ['primary', 'secondary'] },
+    size: { control: 'select', options: ['small', 'medium', 'large'] },
+    radius: { control: 'select', options: ['small', 'medium', 'large'] },
+  },
 };
 
-export default meta;
-
-type Story = StoryObj;
-
-export const Primary: Story = {
-	args: {
-		size: 'small',
-		variant: 'primary',
-		disabled: false,
-		text: 'Primary Button',
-		theme: 'light',
-		customTheme: '',
-	},
-	render: args => {
-		return `<elx-button size="${args.size}" variant="${args.variant}" disabled="${args.disabled}" theme="${args.theme}" customTheme="${args.customTheme}">${args.text}</elx-button>`;
-	},
+const Template = (args) => {
+  applyDesignTokens({
+    colors: {
+      ...defaultTokens.colors,
+      primary: '#ff5733',
+      secondary: '#28a745',
+    },
+  });
+  return html`<elx-button variant=${args.variant} size=${args.size} radius=${args.radius}>Click Me</elx-button>`;
 };
 
-export const Secondary: Story = {
-	args: {
-		size: 'small',
-		variant: 'secondary',
-		disabled: false,
-		text: 'Secondary Button',
-		theme: 'light',
-		customTheme: '',
-	},
-	render: args => {
-		return `<elx-button size="${args.size}" variant="${args.variant}" disabled="${args.disabled}" theme="${args.theme}" customTheme="${args.customTheme}">${args.text}</elx-button>`;
-	},
-};
+export const Primary = Template.bind({});
+Primary.args = { variant: 'primary', size: 'medium', radius: 'medium' };
 
-export const Disabled: Story = {
-	args: {
-		size: 'small',
-		variant: 'primary',
-		disabled: true,
-		text: 'Disabled Button',
-		theme: 'light',
-		customTheme: '',
-	},
-	render: args => {
-		return `<elx-button size="${args.size}" variant="${args.variant}" disabled="${args.disabled}" theme="${args.theme}" customTheme="${args.customTheme}">${args.text}</elx-button>`;
-	},
-};
-
-export const CustomTheme: Story = {
-	args: {
-		size: 'medium',
-		variant: 'primary',
-		disabled: false,
-		text: 'Custom Theme Button',
-		theme: 'custom',
-		customTheme: '/styles/custom-theme.css',
-	},
-	render: args => {
-		return `<elx-button size="${args.size}" variant="${args.variant}" disabled="${args.disabled}" theme="${args.theme}" customTheme="${args.customTheme}">${args.text}</elx-button>`;
-	},
-};
+export const Secondary = Template.bind({});
+Secondary.args = { variant: 'secondary', size: 'large', radius: 'large' };

@@ -7,11 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface ElxButton {
-        "customTheme"?: string;
-        "disabled": boolean;
+        "radius": 'small' | 'medium' | 'large';
         "size": 'small' | 'medium' | 'large';
-        "theme": 'light' | 'dark' | 'custom';
-        "variant": 'primary' | 'secondary' | 'tertiary';
+        "variant": 'primary' | 'secondary';
     }
 }
 declare global {
@@ -27,11 +25,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ElxButton {
-        "customTheme"?: string;
-        "disabled"?: boolean;
+        "radius"?: 'small' | 'medium' | 'large';
         "size"?: 'small' | 'medium' | 'large';
-        "theme"?: 'light' | 'dark' | 'custom';
-        "variant"?: 'primary' | 'secondary' | 'tertiary';
+        "variant"?: 'primary' | 'secondary';
     }
     interface IntrinsicElements {
         "elx-button": ElxButton;

@@ -5,11 +5,12 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                             | Default     |
-| --------- | --------- | ----------- | -------------------------------- | ----------- |
-| `radius`  | `radius`  |             | `"large" \| "medium" \| "small"` | `'medium'`  |
-| `size`    | `size`    |             | `"large" \| "medium" \| "small"` | `'medium'`  |
-| `variant` | `variant` |             | `"primary" \| "secondary"`       | `'primary'` |
+| Property   | Attribute  | Description | Type                             | Default     |
+| ---------- | ---------- | ----------- | -------------------------------- | ----------- |
+| `disabled` | `disabled` |             | `boolean`                        | `false`     |
+| `radius`   | `radius`   |             | `"large" \| "medium" \| "small"` | `'medium'`  |
+| `size`     | `size`     |             | `"large" \| "medium" \| "small"` | `'medium'`  |
+| `variant`  | `variant`  |             | `"primary" \| "secondary"`       | `'primary'` |
 
 
 ----------------------------------------------

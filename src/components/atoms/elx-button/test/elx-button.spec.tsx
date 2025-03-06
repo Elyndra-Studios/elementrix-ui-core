@@ -42,4 +42,14 @@ describe('elx-button', () => {
     });
     expect(page.root.shadowRoot.querySelector('button')).toHaveClass('radius-small');
   });
+
+  it('applies disabled prop correctly', async () => {
+    const page = await newSpecPage({
+      components: [ElxButton],
+      html: `<elx-button disabled>Click Me</elx-button>`,
+    });
+    const button = page.root.shadowRoot.querySelector('button');
+    expect(button).toHaveClass('disabled');
+    expect(button).toHaveAttribute('disabled');
+  });
 });

@@ -1,4 +1,3 @@
-// Import global design tokens as CSS variables
 :host {
   display: inline-block;
 }
@@ -9,7 +8,7 @@
   padding: 8px 16px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 
   &.primary {
     background-color: var(--elx-color-primary);
@@ -45,7 +44,13 @@
     border-radius: var(--elx-radius-large);
   }
 
-  &:hover {
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none; // Ensures no events pass through
+  }
+
+  &:hover:not(.disabled) {
     opacity: 0.9;
   }
 }

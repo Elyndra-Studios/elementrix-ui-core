@@ -4,28 +4,28 @@ import { defaultTokens } from '../../../elementrix.config';
 describe('design-tokens utility', () => {
   it('generates SCSS variables from default tokens', () => {
     const result = generateScssVariables(defaultTokens);
-    expect(result).toContain('--elx-color-primary: #007bff');
-    expect(result).toContain('--elx-font-family: \'Helvetica\', sans-serif');
-    expect(result).toContain('--elx-radius-medium: 8px');
+    expect(result).toContain('--elx-color-primary: #00a8e8'); // Updated
+    expect(result).toContain('--elx-font-family: \'Inter\', sans-serif'); // Updated
+    expect(result).toContain('--elx-radius-medium: 12px'); // Updated
   });
 
   it('overrides tokens when custom values are provided', () => {
     const customTokens = {
       colors: {
-        ...defaultTokens.colors, // Spread to include secondary and text
-        primary: '#ff0000',      // Override only primary
+        ...defaultTokens.colors,
+        primary: '#ff0000',
       },
     };
     const result = generateScssVariables({ ...defaultTokens, ...customTokens });
     expect(result).toContain('--elx-color-primary: #ff0000');
-    expect(result).toContain('--elx-color-secondary: #6c757d'); // Unchanged
+    expect(result).toContain('--elx-color-secondary: #6b7280'); // Updated
   });
 
   it('applies tokens to the document', () => {
     const customTokens = {
       colors: {
-        ...defaultTokens.colors, // Spread to include secondary and text
-        primary: '#123456',      // Override only primary
+        ...defaultTokens.colors,
+        primary: '#123456',
       },
     };
     applyDesignTokens(customTokens);

@@ -11,9 +11,10 @@ describe('elx-button', () => {
       <elx-button>
         <mock:shadow-root>
           <button class="elx-button primary medium radius-medium">
-            Click Me
+            <slot></slot>
           </button>
         </mock:shadow-root>
+        Click Me
       </elx-button>
     `);
   });

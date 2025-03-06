@@ -1,0 +1,39 @@
+$color-primary: #007bff;
+$color-secondary: #7b1fa2;
+$color-accent: #00bcd4;
+
+$color-background: #ffffff;
+$color-surface: #f8f9fa;
+
+$color-text-primary: #212529;
+$color-text-secondary: #495057;
+$color-text-muted: #6c757d;
+
+$color-border: #dee2e6;
+
+$font-family: 'Roboto', sans-serif;
+$font-size-base: 16px;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$line-height: 1.5;
+
+[data-theme='light'] {
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-accent: #{$color-accent};
+
+  --color-background: #{$color-background};
+  --color-surface: #{$color-surface};
+
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+  --color-text-muted: #{$color-text-muted};
+
+  --color-border: #{$color-border};
+
+  --font-family: #{$font-family};
+  --font-size-base: #{$font-size-base};
+  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-bold: #{$font-weight-bold};
+  --line-height: #{$line-height};
+}

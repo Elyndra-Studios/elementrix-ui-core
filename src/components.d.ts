@@ -6,38 +6,42 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface UiButton {
+    interface ElxButton {
+        "customTheme"?: string;
         "disabled": boolean;
         "size": 'small' | 'medium' | 'large';
-        "theme": 'primary' | 'secondary' | 'danger';
+        "theme": 'light' | 'dark' | 'custom';
+        "variant": 'primary' | 'secondary' | 'tertiary';
     }
 }
 declare global {
-    interface HTMLUiButtonElement extends Components.UiButton, HTMLStencilElement {
+    interface HTMLElxButtonElement extends Components.ElxButton, HTMLStencilElement {
     }
-    var HTMLUiButtonElement: {
-        prototype: HTMLUiButtonElement;
-        new (): HTMLUiButtonElement;
+    var HTMLElxButtonElement: {
+        prototype: HTMLElxButtonElement;
+        new (): HTMLElxButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "ui-button": HTMLUiButtonElement;
+        "elx-button": HTMLElxButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface UiButton {
+    interface ElxButton {
+        "customTheme"?: string;
         "disabled"?: boolean;
         "size"?: 'small' | 'medium' | 'large';
-        "theme"?: 'primary' | 'secondary' | 'danger';
+        "theme"?: 'light' | 'dark' | 'custom';
+        "variant"?: 'primary' | 'secondary' | 'tertiary';
     }
     interface IntrinsicElements {
-        "ui-button": UiButton;
+        "elx-button": ElxButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
+            "elx-button": LocalJSX.ElxButton & JSXBase.HTMLAttributes<HTMLElxButtonElement>;
         }
     }
 }

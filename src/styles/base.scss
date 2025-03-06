@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 /* Define SCSS variables */
 $primary-color: #3498db !default;
 $secondary-color: #2ecc71 !default;
@@ -11,9 +13,54 @@ $spacing-unit: 8px !default;
 $border-radius: 0.375rem !default;
 $transition-speed: 0.3s !default;
 
-/* Apply variables to global styles */
+/* Define CSS Variables for Theming */
+:root {
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+  --color-accent: #{$accent-color};
+  --color-background: #{$background-color};
+  --color-text: #{$text-color};
+  --color-danger: #{$danger-color};
+  --font-family: #{$font-family};
+  --font-size: #{$font-size};
+  --spacing-unit: #{$spacing-unit};
+  --border-radius: #{$border-radius};
+  --transition-speed: #{$transition-speed};
+}
+
+/* Light Theme */
+[data-theme='light'] {
+  --color-primary: #{$primary-color};
+  --color-secondary: #{$secondary-color};
+  --color-accent: #{$accent-color};
+  --color-background: #{$background-color};
+  --color-text: #{$text-color};
+  --color-danger: #{$danger-color};
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  --color-primary: #{color.adjust($primary-color, $lightness: -20%)};
+  --color-secondary: #{color.adjust($secondary-color, $lightness: -20%)};
+  --color-accent: #{color.adjust($accent-color, $lightness: -20%)};
+  --color-background: #{color.adjust($background-color, $lightness: -20%)};
+  --color-text: #{color.adjust($text-color, $lightness: 50%)};
+  --color-danger: #{color.adjust($danger-color, $lightness: -20%)};
+}
+
+/* Custom Theme - User-Defined */
+[data-theme='custom'] {
+  --custom-primary: var(--custom-primary, #{$primary-color});
+  --custom-secondary: var(--custom-secondary, #{$secondary-color});
+  --custom-accent: var(--custom-accent, #{$accent-color});
+  --custom-background: var(--custom-background, #{$background-color});
+  --custom-text: var(--custom-text, #{$text-color});
+  --custom-danger: var(--custom-danger, #{$danger-color});
+}
+
+/* Apply Variables to Global Styles */
 h1, h2, h3, p {
-  font-family: $font-family;
-  color: $text-color;
-  font-size: $font-size;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-size: var(--font-size);
 }

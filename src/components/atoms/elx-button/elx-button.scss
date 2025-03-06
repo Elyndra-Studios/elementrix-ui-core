@@ -1,0 +1,61 @@
+@use '../../../styles/base' as base;
+@use 'sass:color';
+
+/* Default Button Styling */
+.elx-button {
+  border: none;
+  border-radius: var(--border-radius, base.$border-radius);
+  transition: all var(--transition-speed, base.$transition-speed) ease-in-out;
+  cursor: pointer;
+  font-family: var(--font-family, base.$font-family);
+  padding: var(--spacing-unit, base.$spacing-unit) var(--spacing-unit, base.$spacing-unit * 2);
+  font-size: 1rem;
+
+  &.disabled {
+    background-color: #d1d5db;
+    color: #9ca3af;
+    cursor: not-allowed;
+  }
+}
+
+/* Light Theme */
+[data-theme='light'] .elx-button {
+  background-color: var(--color-primary, base.$primary-color);
+  color: white;
+
+  &.secondary {
+    background-color: var(--color-secondary, base.$secondary-color);
+  }
+
+  &.accent {
+    background-color: var(--color-accent, base.$accent-color);
+  }
+
+  &.danger {
+    background-color: var(--color-danger, base.$danger-color);
+  }
+}
+
+/* Dark Theme */
+[data-theme='dark'] .elx-button {
+  background-color: color.scale(base.$primary-color, $lightness: -20%);
+  color: white;
+
+  &.secondary {
+    background-color: color.scale(base.$secondary-color, $lightness: -20%);
+  }
+
+  &.accent {
+    background-color: color.scale(base.$accent-color, $lightness: -20%);
+  }
+
+  &.danger {
+    background-color: color.scale(base.$danger-color, $lightness: -20%);
+  }
+}
+
+/* Custom Theme */
+[data-theme='custom'] .elx-button {
+  background-color: var(--custom-primary, base.$primary-color);
+  color: var(--custom-text, white);
+}

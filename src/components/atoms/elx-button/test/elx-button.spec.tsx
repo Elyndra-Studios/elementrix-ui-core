@@ -2,12 +2,12 @@ import { newSpecPage } from '@stencil/core/testing';
 import { ElxButton } from '../elx-button';
 
 describe('elx-button', () => {
-  it('renders with default props', async () => {
-    const page = await newSpecPage({
-      components: [ElxButton],
-      html: `<elx-button>Click Me</elx-button>`,
-    });
-    expect(page.root).toEqualHtml(`
+	it('renders with default props', async () => {
+		const page = await newSpecPage({
+			components: [ElxButton],
+			html: `<elx-button>Click Me</elx-button>`,
+		});
+		expect(page.root).toEqualHtml(`
       <elx-button>
         <mock:shadow-root>
           <button class="elx-button primary medium radius-medium">
@@ -17,39 +17,39 @@ describe('elx-button', () => {
         Click Me
       </elx-button>
     `);
-  });
+	});
 
-  it('applies variant prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [ElxButton],
-      html: `<elx-button variant="secondary">Click Me</elx-button>`,
-    });
-    expect(page.root.shadowRoot.querySelector('button')).toHaveClass('secondary');
-  });
+	it('applies variant prop correctly', async () => {
+		const page = await newSpecPage({
+			components: [ElxButton],
+			html: `<elx-button variant="secondary">Click Me</elx-button>`,
+		});
+		expect(page.root.shadowRoot.querySelector('button')).toHaveClass('secondary');
+	});
 
-  it('applies size prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [ElxButton],
-      html: `<elx-button size="large">Click Me</elx-button>`,
-    });
-    expect(page.root.shadowRoot.querySelector('button')).toHaveClass('large');
-  });
+	it('applies size prop correctly', async () => {
+		const page = await newSpecPage({
+			components: [ElxButton],
+			html: `<elx-button size="large">Click Me</elx-button>`,
+		});
+		expect(page.root.shadowRoot.querySelector('button')).toHaveClass('large');
+	});
 
-  it('applies radius prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [ElxButton],
-      html: `<elx-button radius="small">Click Me</elx-button>`,
-    });
-    expect(page.root.shadowRoot.querySelector('button')).toHaveClass('radius-small');
-  });
+	it('applies radius prop correctly', async () => {
+		const page = await newSpecPage({
+			components: [ElxButton],
+			html: `<elx-button radius="small">Click Me</elx-button>`,
+		});
+		expect(page.root.shadowRoot.querySelector('button')).toHaveClass('radius-small');
+	});
 
-  it('applies disabled prop correctly', async () => {
-    const page = await newSpecPage({
-      components: [ElxButton],
-      html: `<elx-button disabled>Click Me</elx-button>`,
-    });
-    const button = page.root.shadowRoot.querySelector('button');
-    expect(button).toHaveClass('disabled');
-    expect(button).toHaveAttribute('disabled');
-  });
+	it('applies disabled prop correctly', async () => {
+		const page = await newSpecPage({
+			components: [ElxButton],
+			html: `<elx-button disabled>Click Me</elx-button>`,
+		});
+		const button = page.root.shadowRoot.querySelector('button');
+		expect(button).toHaveClass('disabled');
+		expect(button).toHaveAttribute('disabled');
+	});
 });

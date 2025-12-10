@@ -1,7 +1,7 @@
 .el-form-field {
   display: flex;
   flex-direction: column;
-  gap: var(--el-space-1);
+  gap: var(--el-space-2);
 
   font-family: var(--el-font-sans);
 }
@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--el-space-2);
 }
 
 .el-form-field__control {
@@ -19,13 +20,57 @@
 .el-form-field__hint {
   font-size: var(--el-text-xs);
   color: var(--el-neutral-500);
+  line-height: var(--el-leading-relaxed);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--el-space-1);
+  
+  svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
 }
 
 .el-form-field__error {
   font-size: var(--el-text-xs);
-  color: var(--el-error-500);
+  color: var(--el-error-600);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--el-space-1);
+  
+  svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
 }
 
 .el-form-field--error .el-form-field__control {
-  /* Additional emphasis for error state if needed */
+  // Error state - child inputs handle their own error styling
+  --el-form-field-error: 1;
+}
+
+.el-form-field--success .el-form-field__hint {
+  color: var(--el-success-600);
+}
+
+// Horizontal layout variant
+.el-form-field--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--el-space-4);
+}
+
+.el-form-field--horizontal .el-form-field__header {
+  flex-shrink: 0;
+  width: 8rem;
+  padding-top: var(--el-space-2);
+}
+
+.el-form-field--horizontal .el-form-field__control {
+  flex: 1;
+  margin-top: 0;
 }

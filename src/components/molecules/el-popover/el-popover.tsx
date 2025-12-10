@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, State } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'el-popover',
@@ -12,30 +12,32 @@ export class ElPopover {
   /** Trigger */
   @Prop() trigger: 'click' | 'hover' | 'focus' = 'click';
 
-  /** Controlled open state */
-  @Prop({ mutable: true }) open = false;
+  /** Open state */
+  @Prop({ mutable: true, reflect: true }) open = false;
 
-  @State() internalOpen = false;
+  /** Close on click outside */
+  @Prop() closeOnClickOutside = true;
 
-  private get isOpen() {
-    return this.open || this.internalOpen;
-  }
+  @Event() elOpen!: EventEmitter<boolean>;
 
   private onTriggerClick = () => {
     if (this.trigger === 'click') {
-      this.internalOpen = !this.internalOpen;
+      this.open = !this.open;
+      this.elOpen.emit(this.open);
     }
   };
 
   private onMouseEnter = () => {
     if (this.trigger === 'hover') {
-      this.internalOpen = true;
+      this.open = true;
+      this.elOpen.emit(true);
     }
   };
 
   private onMouseLeave = () => {
     if (this.trigger === 'hover') {
-      this.internalOpen = false;
+      this.open = false;
+      this.elOpen.emit(false);
     }
   };
 
@@ -43,7 +45,7 @@ export class ElPopover {
     return {
       'el-popover': true,
       [`el-popover--${this.placement}`]: true,
-      'el-popover--open': this.isOpen,
+      'el-popover--open': this.open,
     };
   }
 
@@ -59,7 +61,7 @@ export class ElPopover {
           <slot name="trigger" />
         </div>
 
-        {this.isOpen && (
+        {this.open && (
           <div class="el-popover__content">
             <slot name="content" />
           </div>

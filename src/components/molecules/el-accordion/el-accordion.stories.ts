@@ -1,8 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { html } from 'lit-html';
 
 const meta: Meta = {
-  title: 'Molecules/el-accordion',
-  
+	title: 'Molecules/el-accordion',
+
+	argTypes: {
+		multiple: { control: 'boolean' },
+	},
 };
 
 export default meta;
@@ -10,25 +14,39 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
-  render: () => {
-    const accordion = document.createElement('el-accordion');
+	args: {
+		multiple: true,
+	},
+	render: args => html`
+		<el-accordion ?multiple="${args.multiple}">
+			<el-accordion-item heading="Section 1" ?open="${true}">
+				<p>Content for section 1. This section is open by default.</p>
+			</el-accordion-item>
+			<el-accordion-item heading="Section 2">
+				<p>Content for section 2. Click to expand.</p>
+			</el-accordion-item>
+			<el-accordion-item heading="Section 3">
+				<p>Content for section 3. Click to expand.</p>
+			</el-accordion-item>
+		</el-accordion>
+	`,
+};
 
-    const item1 = document.createElement('el-accordion-item');
-    item1.setAttribute('heading', 'Section 1');
-    item1.textContent = 'Content for section 1';
-
-    const item2 = document.createElement('el-accordion-item');
-    item2.setAttribute('heading', 'Section 2');
-    item2.textContent = 'Content for section 2';
-
-    const item3 = document.createElement('el-accordion-item');
-    item3.setAttribute('heading', 'Section 3');
-    item3.textContent = 'Content for section 3';
-
-    accordion.appendChild(item1);
-    accordion.appendChild(item2);
-    accordion.appendChild(item3);
-
-    return accordion;
-  },
+export const Multiple: Story = {
+	args: {
+		multiple: true,
+	},
+	render: args => html`
+		<el-accordion ?multiple="${args.multiple}">
+			<el-accordion-item heading="First Section" ?open="${true}">
+				<p>Multiple sections can be open at once.</p>
+			</el-accordion-item>
+			<el-accordion-item heading="Second Section" ?open="${true}">
+				<p>This section is also open.</p>
+			</el-accordion-item>
+			<el-accordion-item heading="Third Section">
+				<p>Click to expand this one too.</p>
+			</el-accordion-item>
+		</el-accordion>
+	`,
 };

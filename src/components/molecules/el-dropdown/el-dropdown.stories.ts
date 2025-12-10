@@ -1,8 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { html } from 'lit-html';
 
 const meta: Meta = {
   title: 'Molecules/el-dropdown',
   
+  argTypes: {
+    placement: {
+      control: 'select',
+      options: ['top', 'bottom', 'left', 'right'],
+    },
+    open: { control: 'boolean' },
+    closeOnSelect: { control: 'boolean' },
+  },
 };
 
 export default meta;
@@ -10,28 +19,20 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
-  render: () => {
-    const dropdown = document.createElement('el-dropdown');
-    dropdown.setAttribute('placement', 'bottom');
-
-    const button = document.createElement('el-button');
-    button.setAttribute('slot', 'trigger');
-    button.textContent = 'Menu';
-
-    const item1 = document.createElement('div');
-    item1.textContent = 'Item 1';
-    item1.style.padding = '0.5rem';
-    item1.style.cursor = 'pointer';
-
-    const item2 = document.createElement('div');
-    item2.textContent = 'Item 2';
-    item2.style.padding = '0.5rem';
-    item2.style.cursor = 'pointer';
-
-    dropdown.appendChild(button);
-    dropdown.appendChild(item1);
-    dropdown.appendChild(item2);
-
-    return dropdown;
+  args: {
+    placement: 'bottom',
+    closeOnSelect: true,
   },
+  render: (args) => html`
+    <el-dropdown 
+      placement="${args.placement}"
+      ?open="${args.open}"
+      ?close-on-select="${args.closeOnSelect}">
+      <el-button slot="trigger">Menu</el-button>
+      <div class="el-dropdown__item">Profile</div>
+      <div class="el-dropdown__item">Settings</div>
+      <div class="el-dropdown__divider"></div>
+      <div class="el-dropdown__item el-dropdown__item--danger">Logout</div>
+    </el-dropdown>
+  `,
 };

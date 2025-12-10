@@ -34,12 +34,19 @@ export class ElSwitch {
 
   render() {
     return (
-      <Host class={this.hostClass} onClick={this.onToggle}>
-        <button class="el-switch__track" type="button" disabled={this.disabled} aria-pressed={this.checked ? 'true' : 'false'}>
+      <Host class={this.hostClass}>
+        <button 
+          class="el-switch__track" 
+          type="button" 
+          disabled={this.disabled} 
+          aria-pressed={this.checked ? 'true' : 'false'}
+          aria-label="Toggle switch"
+          onClick={this.onToggle}
+        >
           <span class="el-switch__thumb" />
         </button>
 
-        <span class="el-switch__label">
+        <span class="el-switch__label" onClick={this.onToggle}>
           <slot />
         </span>
       </Host>

@@ -1,28 +1,44 @@
 .el-accordion-item {
   border: var(--el-border-width-thin) solid var(--el-border-color);
-  border-radius: var(--el-radius-md);
+  border-radius: var(--el-radius-xl);
   overflow: hidden;
+  background-color: var(--el-surface-base);
+  transition: all var(--el-duration-fast) var(--el-ease-out);
+}
+
+.el-accordion-item--open {
+  box-shadow: var(--el-shadow-md);
 }
 
 .el-accordion-item__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--el-space-3);
   width: 100%;
-  padding: var(--el-space-3) var(--el-space-4);
+  padding: var(--el-space-4) var(--el-space-5);
   border: none;
-  background-color: var(--el-surface-base);
+  background-color: transparent;
   color: var(--el-neutral-900);
   font-family: var(--el-font-sans);
   font-size: var(--el-text-sm);
-  font-weight: var(--el-weight-medium);
+  font-weight: var(--el-weight-semibold);
   text-align: left;
   cursor: pointer;
-  transition: background-color var(--el-duration-fast) var(--el-ease-out);
+  transition: all var(--el-duration-fast) var(--el-ease-out);
 
   &:hover {
     background-color: var(--el-surface-subtle);
   }
+  
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset var(--el-shadow-focus);
+  }
+}
+
+.el-accordion-item--open .el-accordion-item__header {
+  background-color: var(--el-surface-subtle);
 }
 
 .el-accordion-item__title {
@@ -31,14 +47,34 @@
 
 .el-accordion-item__icon {
   flex-shrink: 0;
-  font-size: var(--el-text-lg);
-  color: var(--el-neutral-500);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--el-neutral-400);
+  transition: transform var(--el-duration-base) var(--el-ease-out);
+}
+
+.el-accordion-item--open .el-accordion-item__icon {
+  transform: rotate(180deg);
+  color: var(--el-primary-500);
 }
 
 .el-accordion-item__content {
-  padding: var(--el-space-4);
-  border-top: var(--el-border-width-thin) solid var(--el-border-color);
+  padding: var(--el-space-5);
+  padding-top: 0;
   background-color: var(--el-surface-base);
   font-size: var(--el-text-sm);
-  color: var(--el-neutral-700);
+  color: var(--el-neutral-600);
+  line-height: var(--el-leading-relaxed);
+  animation: accordion-expand var(--el-duration-base) var(--el-ease-out);
+}
+
+@keyframes accordion-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

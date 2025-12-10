@@ -8,7 +8,9 @@
 .el-drawer__backdrop {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(var(--el-blur-sm));
+  -webkit-backdrop-filter: blur(var(--el-blur-sm));
   animation: el-drawer-fade-in var(--el-duration-base) var(--el-ease-out);
 }
 
@@ -18,6 +20,7 @@
   flex-direction: column;
   background-color: var(--el-surface-raised);
   box-shadow: var(--el-shadow-2xl);
+  border: var(--el-border-width-thin) solid var(--el-border-color);
   overflow-y: auto;
 }
 
@@ -72,19 +75,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 0;
   border: none;
-  background: none;
+  border-radius: var(--el-radius-lg);
+  background: var(--el-surface-subtle);
   color: var(--el-neutral-500);
-  font-size: var(--el-text-2xl);
+  font-size: var(--el-text-lg);
   line-height: 1;
   cursor: pointer;
-  transition: color var(--el-duration-fast) var(--el-ease-out);
+  transition: all var(--el-duration-fast) var(--el-ease-out);
 
   &:hover {
+    background: var(--el-neutral-100);
     color: var(--el-neutral-900);
+  }
+  
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--el-shadow-focus);
   }
 }
 
@@ -92,23 +102,27 @@
   padding: var(--el-space-6);
   padding-bottom: var(--el-space-4);
   font-size: var(--el-text-xl);
-  font-weight: var(--el-weight-semibold);
+  font-weight: var(--el-weight-bold);
   color: var(--el-neutral-900);
+  letter-spacing: var(--el-tracking-tight);
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
 }
 
 .el-drawer__body {
   flex: 1;
   padding: var(--el-space-6);
-  padding-top: 0;
-  padding-bottom: var(--el-space-4);
   overflow-y: auto;
-  color: var(--el-neutral-700);
+  color: var(--el-neutral-600);
+  line-height: var(--el-leading-relaxed);
 }
 
 .el-drawer__footer {
-  padding: var(--el-space-6);
-  padding-top: var(--el-space-4);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--el-space-3);
+  padding: var(--el-space-4) var(--el-space-6);
   border-top: var(--el-border-width-thin) solid var(--el-border-color);
+  background-color: var(--el-surface-subtle);
 }
 
 @keyframes el-drawer-fade-in {

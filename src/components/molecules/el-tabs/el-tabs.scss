@@ -6,23 +6,94 @@
 
 .el-tabs__header {
   display: flex;
-  gap: var(--el-space-2);
-  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+  gap: var(--el-space-1);
+  border-bottom: 2px solid var(--el-neutral-100);
+  position: relative;
+}
+
+.el-tabs__tab {
+  position: relative;
+  padding: var(--el-space-3) var(--el-space-4);
+  font-size: var(--el-text-sm);
+  font-weight: var(--el-weight-medium);
+  color: var(--el-neutral-500);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--el-duration-fast) var(--el-ease-out);
+  
+  &:hover {
+    color: var(--el-neutral-700);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: transparent;
+    transition: all var(--el-duration-fast) var(--el-ease-out);
+  }
+}
+
+.el-tabs__tab--active {
+  color: var(--el-primary-600);
+  
+  &::after {
+    background: var(--el-gradient-primary);
+  }
 }
 
 .el-tabs__panels {
-  padding: var(--el-space-4);
+  padding: var(--el-space-5);
 }
 
+// Line variant (default)
 .el-tabs--line .el-tabs__header {
-  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+  border-bottom: 2px solid var(--el-neutral-100);
 }
 
+// Enclosed variant
 .el-tabs--enclosed .el-tabs__header {
   border-bottom: none;
+  background-color: var(--el-surface-subtle);
+  border-radius: var(--el-radius-lg);
+  padding: var(--el-space-1);
 }
 
+.el-tabs--enclosed .el-tabs__tab {
+  border-radius: var(--el-radius-md);
+  
+  &::after {
+    display: none;
+  }
+}
+
+.el-tabs--enclosed .el-tabs__tab--active {
+  background-color: var(--el-surface-base);
+  box-shadow: var(--el-shadow-sm);
+  color: var(--el-neutral-900);
+}
+
+// Pills variant
 .el-tabs--pills .el-tabs__header {
   border-bottom: none;
-  gap: var(--el-space-1);
+  gap: var(--el-space-2);
+}
+
+.el-tabs--pills .el-tabs__tab {
+  border-radius: var(--el-radius-full);
+  padding: var(--el-space-2) var(--el-space-4);
+  
+  &::after {
+    display: none;
+  }
+}
+
+.el-tabs--pills .el-tabs__tab--active {
+  background: var(--el-gradient-primary);
+  color: white;
+  box-shadow: var(--el-shadow-primary);
 }

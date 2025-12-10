@@ -1,19 +1,157 @@
-  /* Assign SCSS variables using the CSS custom properties */
-  $primary-color: #3498db;
-  $secondary-color: #2ecc71;
-  $accent-color: #f39c12;
-  $background-color: #ecf0f1;
-  $text-color: #2c3e50;
-  $danger-color: #e74c3c;
-  $font-family: 'Roboto', sans-serif;
-  $font-size: 16px;
-  $spacing-unit: 8px;
-  $border-radius: 0.375rem;
-  $transition-speed: 0.3s;
+// ============================================
+// Elementrix UI - Base SCSS Variables
+// ============================================
+
+// These SCSS variables provide fallbacks and can be used
+// in component styles. The CSS custom properties in styles.scss
+// are the primary source of truth for theming.
+
+// Color Palette
+$primary-color: var(--el-primary-500);
+$secondary-color: var(--el-secondary-500);
+$accent-color: var(--el-accent-500);
+$success-color: var(--el-success-500);
+$warning-color: var(--el-warning-500);
+$error-color: var(--el-error-500);
+$info-color: var(--el-info-500);
+
+// Neutrals
+$text-color: var(--el-neutral-900);
+$text-muted: var(--el-neutral-500);
+$background-color: var(--el-surface-base);
+$border-color: var(--el-border-color);
+
+// Typography
+$font-family: var(--el-font-sans);
+$font-mono: var(--el-font-mono);
+$font-size-base: var(--el-text-base);
+
+// Spacing
+$spacing-unit: 0.25rem;
+
+// Border Radius
+$border-radius-sm: var(--el-radius-sm);
+$border-radius: var(--el-radius-md);
+$border-radius-lg: var(--el-radius-lg);
+$border-radius-xl: var(--el-radius-xl);
+$border-radius-full: var(--el-radius-full);
+
+// Transitions
+$transition-fast: var(--el-duration-fast) var(--el-ease-out);
+$transition-base: var(--el-duration-base) var(--el-ease-out);
+$transition-slow: var(--el-duration-slow) var(--el-ease-out);
+
+// Shadows
+$shadow-sm: var(--el-shadow-sm);
+$shadow-md: var(--el-shadow-md);
+$shadow-lg: var(--el-shadow-lg);
+
+// ============================================
+// Base Element Styles
+// ============================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family;
+  color: $text-color;
+  font-weight: var(--el-weight-bold);
+  letter-spacing: var(--el-tracking-tight);
+  line-height: var(--el-leading-tight);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--el-text-4xl);
+}
+
+h2 {
+  font-size: var(--el-text-3xl);
+}
+
+h3 {
+  font-size: var(--el-text-2xl);
+}
+
+h4 {
+  font-size: var(--el-text-xl);
+}
+
+h5 {
+  font-size: var(--el-text-lg);
+}
+
+h6 {
+  font-size: var(--el-text-base);
+}
+
+p {
+  font-family: $font-family;
+  color: var(--el-neutral-700);
+  font-size: $font-size-base;
+  line-height: var(--el-leading-relaxed);
+  margin: 0;
+}
+
+a {
+  color: var(--el-primary-600);
+  text-decoration: none;
+  transition: color $transition-fast;
   
-  h1, h2, h3, p {
-    font-family: $font-family;
-    color: $text-color;
-    font-size: $font-size;
+  &:hover {
+    color: var(--el-primary-700);
+    text-decoration: underline;
   }
+}
+
+code {
+  font-family: $font-mono;
+  font-size: 0.875em;
+  padding: 0.125rem 0.375rem;
+  background-color: var(--el-neutral-100);
+  border-radius: $border-radius-sm;
+  color: var(--el-primary-700);
+}
+
+pre {
+  font-family: $font-mono;
+  font-size: var(--el-text-sm);
+  padding: var(--el-space-4);
+  background-color: var(--el-neutral-900);
+  border-radius: $border-radius-lg;
+  color: var(--el-neutral-100);
+  overflow-x: auto;
   
+  code {
+    padding: 0;
+    background: transparent;
+    color: inherit;
+  }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: $border-color;
+  margin: var(--el-space-6) 0;
+}
+
+// Lists
+ul, ol {
+  padding-left: var(--el-space-6);
+  margin: 0;
+  
+  li {
+    margin-bottom: var(--el-space-2);
+    line-height: var(--el-leading-relaxed);
+  }
+}
+
+// Blockquote
+blockquote {
+  margin: 0;
+  padding: var(--el-space-4) var(--el-space-5);
+  border-left: 4px solid var(--el-primary-500);
+  background-color: var(--el-surface-subtle);
+  border-radius: 0 $border-radius-lg $border-radius-lg 0;
+  font-style: italic;
+  color: var(--el-neutral-700);
+}

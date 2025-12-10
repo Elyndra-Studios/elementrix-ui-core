@@ -1,8 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { html } from 'lit-html';
 
 const meta: Meta = {
   title: 'Organisms/el-drawer',
   
+  argTypes: {
+    placement: {
+      control: 'select',
+      options: ['left', 'right', 'top', 'bottom'],
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg', 'xl'],
+    },
+    open: { control: 'boolean' },
+    closable: { control: 'boolean' },
+    closeOnBackdrop: { control: 'boolean' },
+  },
 };
 
 export default meta;
@@ -10,31 +24,43 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
-  render: () => {
-    const button = document.createElement('el-button');
-    button.textContent = 'Open Drawer';
-
-    const drawer = document.createElement('el-drawer');
-    drawer.setAttribute('placement', 'right');
-    drawer.setAttribute('size', 'md');
-
-    const header = document.createElement('h2');
-    header.setAttribute('slot', 'header');
-    header.textContent = 'Drawer Title';
-
-    const body = document.createTextNode('This is the drawer content.');
-
-    drawer.appendChild(header);
-    drawer.appendChild(body);
-
-    button.addEventListener('click', () => {
-      drawer.setAttribute('open', '');
-    });
-
-    const wrapper = document.createElement('div');
-    wrapper.appendChild(button);
-    wrapper.appendChild(drawer);
-
-    return wrapper;
+  args: {
+    open: true,
+    placement: 'right',
+    size: 'md',
+    closable: true,
+    closeOnBackdrop: true,
   },
+  render: (args) => html`
+    <el-drawer 
+      placement="${args.placement}"
+      size="${args.size}"
+      ?open="${args.open}"
+      ?closable="${args.closable}"
+      ?close-on-backdrop="${args.closeOnBackdrop}">
+      <h2 slot="header">Drawer Title</h2>
+      <p>This is the drawer content. Toggle the 'open' control to show/hide.</p>
+      <div slot="footer">
+        <el-button variant="secondary">Cancel</el-button>
+        <el-button variant="primary">Save</el-button>
+      </div>
+    </el-drawer>
+  `,
+};
+
+export const LeftPlacement: Story = {
+  args: {
+    open: true,
+    placement: 'left',
+    size: 'md',
+  },
+  render: (args) => html`
+    <el-drawer 
+      placement="${args.placement}"
+      size="${args.size}"
+      ?open="${args.open}">
+      <h2 slot="header">Left Drawer</h2>
+      <p>This drawer slides in from the left.</p>
+    </el-drawer>
+  `,
 };

@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, State } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'el-tooltip',
@@ -15,23 +15,32 @@ export class ElTooltip {
   /** Trigger */
   @Prop() trigger: 'hover' | 'click' | 'focus' = 'hover';
 
-  @State() visible = false;
+  /** Visible state */
+  @Prop({ mutable: true, reflect: true }) visible = false;
+
+  /** Disabled state */
+  @Prop({ reflect: true }) disabled = false;
+
+  @Event() elVisibleChange!: EventEmitter<boolean>;
 
   private onMouseEnter = () => {
-    if (this.trigger === 'hover') {
+    if (this.trigger === 'hover' && !this.disabled) {
       this.visible = true;
+      this.elVisibleChange.emit(true);
     }
   };
 
   private onMouseLeave = () => {
-    if (this.trigger === 'hover') {
+    if (this.trigger === 'hover' && !this.disabled) {
       this.visible = false;
+      this.elVisibleChange.emit(false);
     }
   };
 
   private onClick = () => {
-    if (this.trigger === 'click') {
+    if (this.trigger === 'click' && !this.disabled) {
       this.visible = !this.visible;
+      this.elVisibleChange.emit(this.visible);
     }
   };
 
@@ -40,6 +49,7 @@ export class ElTooltip {
       'el-tooltip': true,
       [`el-tooltip--${this.placement}`]: true,
       'el-tooltip--visible': this.visible,
+      'el-tooltip--disabled': this.disabled,
     };
   }
 

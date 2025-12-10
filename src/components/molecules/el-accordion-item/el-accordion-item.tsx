@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, State } from '@stencil/core';
+import { Component, Prop, h, Host, Watch, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'el-accordion-item',
@@ -10,18 +10,28 @@ export class ElAccordionItem {
   @Prop() heading!: string;
 
   /** Open state */
-  @Prop({ mutable: true }) open = false;
+  @Prop({ mutable: true, reflect: true }) open = false;
 
-  @State() isOpen = this.open;
+  /** Disabled state */
+  @Prop({ reflect: true }) disabled = false;
+
+  @Event() elToggle!: EventEmitter<boolean>;
+
+  @Watch('open')
+  openChanged(newValue: boolean) {
+    this.elToggle.emit(newValue);
+  }
 
   private toggle = () => {
-    this.isOpen = !this.isOpen;
+    if (this.disabled) return;
+    this.open = !this.open;
   };
 
   private get hostClass() {
     return {
       'el-accordion-item': true,
-      'el-accordion-item--open': this.isOpen,
+      'el-accordion-item--open': this.open,
+      'el-accordion-item--disabled': this.disabled,
     };
   }
 
@@ -32,10 +42,10 @@ export class ElAccordionItem {
           <span class="el-accordion-item__title">
             <slot name="header">{this.heading}</slot>
           </span>
-          <span class="el-accordion-item__icon">{this.isOpen ? '−' : '+'}</span>
+          <span class="el-accordion-item__icon">{this.open ? '−' : '+'}</span>
         </button>
 
-        {this.isOpen && (
+        {this.open && (
           <div class="el-accordion-item__content">
             <slot />
           </div>

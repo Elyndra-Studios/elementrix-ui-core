@@ -17,6 +17,11 @@ export namespace Components {
     }
     interface ElAccordionItem {
         /**
+          * Disabled state
+          * @default false
+         */
+        "disabled": boolean;
+        /**
           * Item heading text
          */
         "heading": string;
@@ -293,6 +298,16 @@ export namespace Components {
     }
     interface ElDropdown {
         /**
+          * Close on select
+          * @default true
+         */
+        "closeOnSelect": boolean;
+        /**
+          * Open state
+          * @default false
+         */
+        "open": boolean;
+        /**
           * Placement
           * @default 'bottom'
          */
@@ -542,7 +557,12 @@ export namespace Components {
     }
     interface ElPopover {
         /**
-          * Controlled open state
+          * Close on click outside
+          * @default true
+         */
+        "closeOnClickOutside": boolean;
+        /**
+          * Open state
           * @default false
          */
         "open": boolean;
@@ -894,6 +914,11 @@ export namespace Components {
          */
         "content"?: string;
         /**
+          * Disabled state
+          * @default false
+         */
+        "disabled": boolean;
+        /**
           * Placement
           * @default 'top'
          */
@@ -903,6 +928,11 @@ export namespace Components {
           * @default 'hover'
          */
         "trigger": 'hover' | 'click' | 'focus';
+        /**
+          * Visible state
+          * @default false
+         */
+        "visible": boolean;
     }
     interface ElTransition {
         /**
@@ -921,6 +951,10 @@ export namespace Components {
          */
         "variant": 'fade' | 'slide' | 'scale' | 'collapse';
     }
+}
+export interface ElAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElAccordionItemElement;
 }
 export interface ElAlertCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -942,6 +976,10 @@ export interface ElDrawerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLElDrawerElement;
 }
+export interface ElDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElDropdownElement;
+}
 export interface ElFileUploadCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLElFileUploadElement;
@@ -961,6 +999,10 @@ export interface ElModalCustomEvent<T> extends CustomEvent<T> {
 export interface ElPaginationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLElPaginationElement;
+}
+export interface ElPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElPopoverElement;
 }
 export interface ElRatingCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -998,6 +1040,10 @@ export interface ElToggleGroupCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLElToggleGroupElement;
 }
+export interface ElTooltipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElTooltipElement;
+}
 declare global {
     interface HTMLElAccordionElement extends Components.ElAccordion, HTMLStencilElement {
     }
@@ -1005,7 +1051,18 @@ declare global {
         prototype: HTMLElAccordionElement;
         new (): HTMLElAccordionElement;
     };
+    interface HTMLElAccordionItemElementEventMap {
+        "elToggle": boolean;
+    }
     interface HTMLElAccordionItemElement extends Components.ElAccordionItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElAccordionItemElementEventMap>(type: K, listener: (this: HTMLElAccordionItemElement, ev: ElAccordionItemCustomEvent<HTMLElAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElAccordionItemElementEventMap>(type: K, listener: (this: HTMLElAccordionItemElement, ev: ElAccordionItemCustomEvent<HTMLElAccordionItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLElAccordionItemElement: {
         prototype: HTMLElAccordionItemElement;
@@ -1163,7 +1220,18 @@ declare global {
         prototype: HTMLElDrawerElement;
         new (): HTMLElDrawerElement;
     };
+    interface HTMLElDropdownElementEventMap {
+        "elOpen": boolean;
+    }
     interface HTMLElDropdownElement extends Components.ElDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElDropdownElementEventMap>(type: K, listener: (this: HTMLElDropdownElement, ev: ElDropdownCustomEvent<HTMLElDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElDropdownElementEventMap>(type: K, listener: (this: HTMLElDropdownElement, ev: ElDropdownCustomEvent<HTMLElDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLElDropdownElement: {
         prototype: HTMLElDropdownElement;
@@ -1303,7 +1371,18 @@ declare global {
         prototype: HTMLElPaginationElement;
         new (): HTMLElPaginationElement;
     };
+    interface HTMLElPopoverElementEventMap {
+        "elOpen": boolean;
+    }
     interface HTMLElPopoverElement extends Components.ElPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElPopoverElementEventMap>(type: K, listener: (this: HTMLElPopoverElement, ev: ElPopoverCustomEvent<HTMLElPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElPopoverElementEventMap>(type: K, listener: (this: HTMLElPopoverElement, ev: ElPopoverCustomEvent<HTMLElPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLElPopoverElement: {
         prototype: HTMLElPopoverElement;
@@ -1519,7 +1598,18 @@ declare global {
         prototype: HTMLElToggleGroupElement;
         new (): HTMLElToggleGroupElement;
     };
+    interface HTMLElTooltipElementEventMap {
+        "elVisibleChange": boolean;
+    }
     interface HTMLElTooltipElement extends Components.ElTooltip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElTooltipElementEventMap>(type: K, listener: (this: HTMLElTooltipElement, ev: ElTooltipCustomEvent<HTMLElTooltipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElTooltipElementEventMap>(type: K, listener: (this: HTMLElTooltipElement, ev: ElTooltipCustomEvent<HTMLElTooltipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLElTooltipElement: {
         prototype: HTMLElTooltipElement;
@@ -1597,9 +1687,15 @@ declare namespace LocalJSX {
     }
     interface ElAccordionItem {
         /**
+          * Disabled state
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
           * Item heading text
          */
         "heading": string;
+        "onElToggle"?: (event: ElAccordionItemCustomEvent<boolean>) => void;
         /**
           * Open state
           * @default false
@@ -1879,6 +1975,17 @@ declare namespace LocalJSX {
     }
     interface ElDropdown {
         /**
+          * Close on select
+          * @default true
+         */
+        "closeOnSelect"?: boolean;
+        "onElOpen"?: (event: ElDropdownCustomEvent<boolean>) => void;
+        /**
+          * Open state
+          * @default false
+         */
+        "open"?: boolean;
+        /**
           * Placement
           * @default 'bottom'
          */
@@ -2134,7 +2241,13 @@ declare namespace LocalJSX {
     }
     interface ElPopover {
         /**
-          * Controlled open state
+          * Close on click outside
+          * @default true
+         */
+        "closeOnClickOutside"?: boolean;
+        "onElOpen"?: (event: ElPopoverCustomEvent<boolean>) => void;
+        /**
+          * Open state
           * @default false
          */
         "open"?: boolean;
@@ -2498,6 +2611,12 @@ declare namespace LocalJSX {
          */
         "content"?: string;
         /**
+          * Disabled state
+          * @default false
+         */
+        "disabled"?: boolean;
+        "onElVisibleChange"?: (event: ElTooltipCustomEvent<boolean>) => void;
+        /**
           * Placement
           * @default 'top'
          */
@@ -2507,6 +2626,11 @@ declare namespace LocalJSX {
           * @default 'hover'
          */
         "trigger"?: 'hover' | 'click' | 'focus';
+        /**
+          * Visible state
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ElTransition {
         /**

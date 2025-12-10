@@ -11,18 +11,69 @@
 .el-dropdown__menu {
   position: absolute;
   z-index: var(--el-z-dropdown);
-  min-width: 10rem;
+  min-width: 12rem;
   padding: var(--el-space-2);
   background-color: var(--el-surface-overlay);
   border: var(--el-border-width-thin) solid var(--el-border-color);
+  border-radius: var(--el-radius-xl);
+  box-shadow: var(--el-shadow-xl);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  transition: all var(--el-duration-fast) var(--el-ease-out);
+}
+
+.el-dropdown--open .el-dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.el-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: var(--el-space-3);
+  padding: var(--el-space-2) var(--el-space-3);
+  font-size: var(--el-text-sm);
+  color: var(--el-neutral-700);
   border-radius: var(--el-radius-md);
-  box-shadow: var(--el-shadow-lg);
+  cursor: pointer;
+  transition: all var(--el-duration-fast) var(--el-ease-out);
+  
+  &:hover {
+    background-color: var(--el-surface-subtle);
+    color: var(--el-neutral-900);
+  }
+  
+  &--active {
+    background: linear-gradient(135deg, var(--el-primary-50) 0%, var(--el-primary-100) 100%);
+    color: var(--el-primary-700);
+  }
+  
+  &--danger {
+    color: var(--el-error-600);
+    
+    &:hover {
+      background-color: var(--el-error-50);
+    }
+  }
+}
+
+.el-dropdown__divider {
+  height: 1px;
+  margin: var(--el-space-2) 0;
+  background-color: var(--el-border-color);
 }
 
 .el-dropdown--top .el-dropdown__menu {
   bottom: 100%;
   left: 0;
   margin-bottom: var(--el-space-2);
+  transform: translateY(0.5rem);
+}
+
+.el-dropdown--top.el-dropdown--open .el-dropdown__menu {
+  transform: translateY(0);
 }
 
 .el-dropdown--bottom .el-dropdown__menu {
@@ -35,10 +86,20 @@
   right: 100%;
   top: 0;
   margin-right: var(--el-space-2);
+  transform: translateX(0.5rem);
+}
+
+.el-dropdown--left.el-dropdown--open .el-dropdown__menu {
+  transform: translateX(0);
 }
 
 .el-dropdown--right .el-dropdown__menu {
   left: 100%;
   top: 0;
   margin-left: var(--el-space-2);
+  transform: translateX(-0.5rem);
+}
+
+.el-dropdown--right.el-dropdown--open .el-dropdown__menu {
+  transform: translateX(0);
 }

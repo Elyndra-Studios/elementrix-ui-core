@@ -1,6 +1,21 @@
 .el-accordion__inner {
   display: flex;
   flex-direction: column;
-  gap: var(--el-space-2);
+  gap: var(--el-space-3);
   font-family: var(--el-font-sans);
+}
+
+.el-accordion--bordered .el-accordion__inner {
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+  border-radius: var(--el-radius-xl);
+  overflow: hidden;
+  gap: 0;
+}
+
+.el-accordion--bordered .el-accordion-item {
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+  
+  &:last-child {
+    border-bottom: none;
+  }
 }

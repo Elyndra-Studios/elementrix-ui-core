@@ -2,7 +2,8 @@
   width: 100%;
   overflow-x: auto;
   border: var(--el-border-width-thin) solid var(--el-border-color);
-  border-radius: var(--el-radius-md);
+  border-radius: var(--el-radius-xl);
+  background-color: var(--el-surface-base);
 }
 
 .el-table__inner {
@@ -10,35 +11,77 @@
   border-collapse: collapse;
   font-family: var(--el-font-sans);
   font-size: var(--el-text-sm);
-  color: var(--el-neutral-900);
+  color: var(--el-neutral-700);
 }
 
 .el-table__inner :slotted(thead) {
   background-color: var(--el-surface-subtle);
-  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
 }
 
 .el-table__inner :slotted(th) {
-  padding: var(--el-space-3) var(--el-space-4);
+  padding: var(--el-space-4) var(--el-space-5);
   text-align: left;
+  font-size: var(--el-text-xs);
   font-weight: var(--el-weight-semibold);
-  color: var(--el-neutral-700);
+  color: var(--el-neutral-500);
+  text-transform: uppercase;
+  letter-spacing: var(--el-tracking-wide);
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
 }
 
 .el-table__inner :slotted(td) {
-  padding: var(--el-space-3) var(--el-space-4);
-  border-top: var(--el-border-width-thin) solid var(--el-border-color);
+  padding: var(--el-space-4) var(--el-space-5);
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+  color: var(--el-neutral-700);
+}
+
+.el-table__inner :slotted(tbody tr:last-child td) {
+  border-bottom: none;
 }
 
 .el-table--striped .el-table__inner :slotted(tbody tr:nth-child(even)) {
   background-color: var(--el-surface-subtle);
 }
 
+.el-table--hoverable .el-table__inner :slotted(tbody tr) {
+  transition: background-color var(--el-duration-fast) var(--el-ease-out);
+}
+
 .el-table--hoverable .el-table__inner :slotted(tbody tr:hover) {
-  background-color: var(--el-surface-subtle);
+  background-color: var(--el-primary-50);
 }
 
 .el-table--bordered .el-table__inner :slotted(th),
 .el-table--bordered .el-table__inner :slotted(td) {
   border: var(--el-border-width-thin) solid var(--el-border-color);
+}
+
+// Compact variant
+.el-table--compact .el-table__inner :slotted(th),
+.el-table--compact .el-table__inner :slotted(td) {
+  padding: var(--el-space-2) var(--el-space-3);
+}
+
+// Sortable header
+.el-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--el-space-1);
+  cursor: pointer;
+  user-select: none;
+  
+  &:hover {
+    color: var(--el-neutral-700);
+  }
+}
+
+.el-table__sort-icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--el-neutral-400);
+  transition: color var(--el-duration-fast) var(--el-ease-out);
+}
+
+.el-table__sort--active .el-table__sort-icon {
+  color: var(--el-primary-500);
 }

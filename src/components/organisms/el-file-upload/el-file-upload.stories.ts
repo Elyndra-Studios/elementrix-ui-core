@@ -1,8 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
+import { html } from 'lit-html';
 
 const meta: Meta = {
   title: 'Organisms/el-file-upload',
   
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['dropzone', 'button'],
+    },
+    multiple: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    accept: { control: 'text' },
+  },
 };
 
 export default meta;
@@ -10,19 +20,33 @@ export default meta;
 type Story = StoryObj;
 
 export const Dropzone: Story = {
-  render: () => {
-    const upload = document.createElement('el-file-upload');
-    upload.setAttribute('variant', 'dropzone');
-    upload.setAttribute('multiple', '');
-    return upload;
+  args: {
+    variant: 'dropzone',
+    multiple: true,
+    disabled: false,
+    accept: 'image/*',
   },
+  render: (args) => html`
+    <el-file-upload 
+      variant="${args.variant}"
+      ?multiple="${args.multiple}"
+      ?disabled="${args.disabled}"
+      accept="${args.accept}">
+    </el-file-upload>
+  `,
 };
 
 export const Button: Story = {
-  render: () => {
-    const upload = document.createElement('el-file-upload');
-    upload.setAttribute('variant', 'button');
-    upload.setAttribute('multiple', '');
-    return upload;
+  args: {
+    variant: 'button',
+    multiple: true,
+    disabled: false,
   },
+  render: (args) => html`
+    <el-file-upload 
+      variant="${args.variant}"
+      ?multiple="${args.multiple}"
+      ?disabled="${args.disabled}">
+    </el-file-upload>
+  `,
 };

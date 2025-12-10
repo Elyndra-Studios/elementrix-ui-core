@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, State } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'el-dropdown',
@@ -12,23 +12,32 @@ export class ElDropdown {
   /** Trigger */
   @Prop() trigger: 'click' | 'hover' = 'click';
 
-  @State() open = false;
+  /** Open state */
+  @Prop({ mutable: true, reflect: true }) open = false;
+
+  /** Close on select */
+  @Prop() closeOnSelect = true;
+
+  @Event() elOpen!: EventEmitter<boolean>;
 
   private onTriggerClick = () => {
     if (this.trigger === 'click') {
       this.open = !this.open;
+      this.elOpen.emit(this.open);
     }
   };
 
   private onMouseEnter = () => {
     if (this.trigger === 'hover') {
       this.open = true;
+      this.elOpen.emit(true);
     }
   };
 
   private onMouseLeave = () => {
     if (this.trigger === 'hover') {
       this.open = false;
+      this.elOpen.emit(false);
     }
   };
 

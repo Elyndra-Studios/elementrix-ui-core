@@ -1,0 +1,116 @@
+.el-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.el-tooltip__trigger {
+  display: inline-block;
+}
+
+.el-tooltip__content {
+  position: absolute;
+  z-index: var(--el-z-tooltip);
+  padding: var(--el-space-2) var(--el-space-3);
+  background-color: var(--el-neutral-900);
+  color: var(--el-neutral-50);
+  border-radius: var(--el-radius-lg);
+  font-family: var(--el-font-sans);
+  font-size: var(--el-text-xs);
+  font-weight: var(--el-weight-medium);
+  line-height: var(--el-leading-snug);
+  white-space: nowrap;
+  box-shadow: var(--el-shadow-xl);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--el-duration-fast) var(--el-ease-out);
+  
+  // Glass effect for dark mode
+  backdrop-filter: blur(var(--el-blur-sm));
+  -webkit-backdrop-filter: blur(var(--el-blur-sm));
+  
+  // Arrow
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--el-neutral-900);
+    transform: rotate(45deg);
+  }
+}
+
+.el-tooltip:hover .el-tooltip__content,
+.el-tooltip--visible .el-tooltip__content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.el-tooltip--top .el-tooltip__content {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-0.5rem);
+  margin-bottom: var(--el-space-2);
+  
+  &::after {
+    bottom: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.el-tooltip--bottom .el-tooltip__content {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0.5rem);
+  margin-top: var(--el-space-2);
+  
+  &::after {
+    top: -0.25rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.el-tooltip--left .el-tooltip__content {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-0.5rem);
+  margin-right: var(--el-space-2);
+  
+  &::after {
+    right: -0.25rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+.el-tooltip--right .el-tooltip__content {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(0.5rem);
+  margin-left: var(--el-space-2);
+  
+  &::after {
+    left: -0.25rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+// Hover animation
+.el-tooltip:hover .el-tooltip__content {
+  transform: translateX(-50%) translateY(-0.75rem);
+}
+
+.el-tooltip--bottom:hover .el-tooltip__content {
+  transform: translateX(-50%) translateY(0.75rem);
+}
+
+.el-tooltip--left:hover .el-tooltip__content {
+  transform: translateY(-50%) translateX(-0.75rem);
+}
+
+.el-tooltip--right:hover .el-tooltip__content {
+  transform: translateY(-50%) translateX(0.75rem);
+}

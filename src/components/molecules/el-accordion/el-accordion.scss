@@ -1,0 +1,6 @@
+.el-accordion__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--el-space-2);
+  font-family: var(--el-font-sans);
+}

@@ -1,0 +1,44 @@
+.el-date-picker {
+  position: relative;
+  display: inline-block;
+  font-family: var(--el-font-sans);
+}
+
+.el-date-picker__control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--el-space-2);
+  padding-inline: var(--el-space-3);
+  padding-block: var(--el-space-2);
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+  border-radius: var(--el-radius-md);
+  background-color: var(--el-surface-base);
+  cursor: pointer;
+  transition:
+    border-color var(--el-duration-fast) var(--el-ease-out),
+    box-shadow var(--el-duration-fast) var(--el-ease-out);
+
+  &:hover {
+    border-color: var(--el-border-color-hover);
+  }
+}
+
+.el-date-picker__value {
+  font-size: var(--el-text-sm);
+  color: var(--el-neutral-400);
+}
+
+.el-date-picker__icon {
+  flex-shrink: 0;
+}
+
+.el-date-picker__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: var(--el-space-1);
+  z-index: var(--el-z-dropdown);
+  box-shadow: var(--el-shadow-lg);
+  border-radius: var(--el-radius-lg);
+}

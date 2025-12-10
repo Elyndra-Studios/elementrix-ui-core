@@ -1,0 +1,84 @@
+.el-carousel {
+  display: block;
+  position: relative;
+  font-family: var(--el-font-sans);
+}
+
+.el-carousel__wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--el-radius-lg);
+}
+
+.el-carousel__track {
+  display: flex;
+  transition: transform var(--el-duration-slow) var(--el-ease-in-out);
+}
+
+.el-carousel__track ::slotted(*) {
+  flex: 0 0 100%;
+  min-width: 100%;
+}
+
+.el-carousel__arrows {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--el-space-4);
+  pointer-events: none;
+}
+
+.el-carousel__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--el-radius-full);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--el-neutral-900);
+  font-size: var(--el-text-2xl);
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: var(--el-shadow-md);
+  transition:
+    background-color var(--el-duration-fast) var(--el-ease-out),
+    transform var(--el-duration-fast) var(--el-ease-out);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+}
+
+.el-carousel__indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--el-space-2);
+  margin-top: var(--el-space-4);
+}
+
+.el-carousel__indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--el-radius-full);
+  background-color: var(--el-neutral-300);
+  cursor: pointer;
+  transition: background-color var(--el-duration-fast) var(--el-ease-out);
+
+  &:hover {
+    background-color: var(--el-neutral-400);
+  }
+}
+
+.el-carousel__indicator--active {
+  background-color: var(--el-primary-500);
+}

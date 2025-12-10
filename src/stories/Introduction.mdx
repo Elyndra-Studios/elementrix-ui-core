@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+<div style={{ fontFamily: 'var(--el-font-sans)', maxWidth: '48rem', margin: '0 auto' }}>
+
+# Elementrix UI Core
+
+<div style={{ display: 'flex', gap: '1rem', margin: '2rem 0' }}>
+  <img src="https://img.shields.io/badge/version-0.0.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/stencil-4.39.0-red" alt="Stencil" />
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License" />
+</div>
+
+A modern, minimal, and accessible component library built with **Stencil** and designed with the **Elemental Minimal** design system.
+
+## Features
+
+- 🎨 **53 Production-Ready Components** - Atoms, Molecules, Organisms, Layout, and Utilities
+- 🎭 **Design Token System** - Consistent CSS variables throughout
+- 🌗 **Dark Mode Support** - Built-in theme switching
+- ♿ **Accessibility First** - WCAG 2.1 AA compliant
+- 📦 **Tree-Shakeable** - Import only what you need
+- 🔧 **Framework Agnostic** - Works with React, Vue, Angular, or vanilla JS
+- 📱 **Responsive** - Mobile-first design approach
+
+## Quick Start
+
+```bash
+npm install elementrix-ui-core
+```
+
+```html
+<script type="module">
+  import { defineCustomElements } from 'elementrix-ui-core/loader';
+  defineCustomElements();
+</script>
+
+<el-button variant="primary">Click me</el-button>
+```
+
+## Component Categories
+
+### Atoms (7)
+Basic building blocks: buttons, inputs, labels, badges, checkboxes, switches, textareas
+
+### Molecules (19)
+Composite components: cards, alerts, tooltips, menus, tabs, accordions, progress bars, chips
+
+### Organisms (20)
+Complex components: modals, drawers, tables, carousels, forms, calendars, pickers, grids
+
+### Layout (5)
+Layout primitives: containers, grids, stacks, spacers, aspect ratios
+
+### Utilities (2)
+Helper components: portals, transitions
+
+## Design System
+
+Built on a comprehensive design token system with:
+
+- **Colors**: Neutral palette + primary brand + semantic colors
+- **Typography**: Sans & mono font families with 9 size scales
+- **Spacing**: 8px base grid with 13 spacing values
+- **Shadows**: 7 elevation levels
+- **Border Radius**: 8 radius options
+- **Transitions**: Smooth animations with 3 duration presets
+
+## Theme Support
+
+Toggle between light and dark themes using the toolbar above.
+
+```html
+<body data-theme="dark">
+  <el-button>Dark themed button</el-button>
+</body>
+```
+
+## Documentation
+
+Explore components by category in the sidebar. Each component includes:
+
+- **Interactive demos** - Try different props and states
+- **Code examples** - Copy-paste ready snippets
+- **API documentation** - Complete prop and event reference
+- **Accessibility notes** - ARIA patterns and keyboard support
+
+## Contributing
+
+Contributions are welcome! Check out our [GitHub repository](https://github.com/DemiInfinity/elementrix-ui).
+
+## License
+
+MIT © Elementrix UI
+
+---
+
+<div style={{ textAlign: 'center', marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--el-border-color)' }}>
+  <p style={{ color: 'var(--el-neutral-600)' }}>
+    Built with love using Stencil and Storybook
+  </p>
+</div>
+
+</div>

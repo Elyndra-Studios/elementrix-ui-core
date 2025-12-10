@@ -1,20 +1,20 @@
 // .storybook/preview.ts
+import type { Preview } from '@storybook/web-components-vite';
 
-import { defineCustomElements } from '../dist/loader'; // Make sure this path points to the compiled loader
+// Load global design tokens / base styles so stories pick up the theme.
+import '../src/global/styles.scss';
 
-// Ensure Stencil components are registered
-defineCustomElements(window); // Ensures custom elements are properly defined for Storybook
+// Register Stencil components using the loader
+import { defineCustomElements } from '../dist/loader';
+defineCustomElements();
 
-// Optionally, you can add global decorators for Storybook
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  docs: {
-    source: {
-      state: 'open', // Automatically open the source code in the docs tab
+const preview: Preview = {
+  parameters: {
+    controls: {
+      expanded: true,
     },
-  },
-  controls: {
-    expanded: true, // Make the controls panel more accessible
+    layout: 'padded',
   },
 };
 
+export default preview;

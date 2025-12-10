@@ -1,0 +1,22 @@
+.el-nav {
+  display: block;
+  font-family: var(--el-font-sans);
+}
+
+.el-nav__inner {
+  display: flex;
+  gap: var(--el-space-2);
+}
+
+.el-nav--topbar .el-nav__inner {
+  flex-direction: row;
+  align-items: center;
+  padding: var(--el-space-4);
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+}
+
+.el-nav--sidebar .el-nav__inner {
+  flex-direction: column;
+  padding: var(--el-space-4);
+  border-right: var(--el-border-width-thin) solid var(--el-border-color);
+}

@@ -1,0 +1,38 @@
+.el-container {
+  display: block;
+  width: 100%;
+  font-family: var(--el-font-sans);
+}
+
+.el-container__inner {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.el-container--sm .el-container__inner {
+  max-width: 40rem;
+}
+
+.el-container--md .el-container__inner {
+  max-width: 48rem;
+}
+
+.el-container--lg .el-container__inner {
+  max-width: 64rem;
+}
+
+.el-container--xl .el-container__inner {
+  max-width: 80rem;
+}
+
+.el-container--2xl .el-container__inner {
+  max-width: 96rem;
+}
+
+.el-container--full .el-container__inner {
+  max-width: 100%;
+}
+
+.el-container--padded .el-container__inner {
+  padding-inline: var(--el-space-4);
+}

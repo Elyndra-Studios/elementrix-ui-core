@@ -1,0 +1,75 @@
+.el-command {
+  position: fixed;
+  inset: 0;
+  z-index: var(--el-z-modal);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  font-family: var(--el-font-sans);
+}
+
+.el-command__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: el-command-fade-in var(--el-duration-base) var(--el-ease-out);
+}
+
+.el-command__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 40rem;
+  max-height: 32rem;
+  background-color: var(--el-surface-raised);
+  border-radius: var(--el-radius-lg);
+  box-shadow: var(--el-shadow-2xl);
+  overflow: hidden;
+  animation: el-command-scale-in var(--el-duration-base) var(--el-ease-out);
+}
+
+.el-command__input-wrapper {
+  padding: var(--el-space-4);
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+}
+
+.el-command__input {
+  width: 100%;
+  padding: var(--el-space-2);
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--el-font-sans);
+  font-size: var(--el-text-base);
+  color: var(--el-neutral-900);
+
+  &::placeholder {
+    color: var(--el-neutral-400);
+  }
+}
+
+.el-command__list {
+  max-height: 24rem;
+  overflow-y: auto;
+  padding: var(--el-space-2);
+}
+
+@keyframes el-command-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes el-command-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

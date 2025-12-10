@@ -1,0 +1,90 @@
+.el-file-upload {
+  display: block;
+  font-family: var(--el-font-sans);
+}
+
+.el-file-upload__input {
+  display: none;
+}
+
+.el-file-upload__dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--el-space-12);
+  border: 2px dashed var(--el-border-color);
+  border-radius: var(--el-radius-lg);
+  background-color: var(--el-surface-subtle);
+  cursor: pointer;
+  transition:
+    border-color var(--el-duration-fast) var(--el-ease-out),
+    background-color var(--el-duration-fast) var(--el-ease-out);
+
+  &:hover {
+    border-color: var(--el-primary-500);
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+}
+
+.el-file-upload--dragging .el-file-upload__dropzone {
+  border-color: var(--el-primary-500);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.el-file-upload__icon {
+  font-size: var(--el-text-5xl);
+  margin-bottom: var(--el-space-2);
+}
+
+.el-file-upload__text {
+  font-size: var(--el-text-sm);
+  color: var(--el-neutral-600);
+}
+
+.el-file-upload__list {
+  margin-top: var(--el-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--el-space-2);
+}
+
+.el-file-upload__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--el-space-2) var(--el-space-3);
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+  border-radius: var(--el-radius-md);
+  background-color: var(--el-surface-base);
+}
+
+.el-file-upload__filename {
+  flex: 1;
+  font-size: var(--el-text-sm);
+  color: var(--el-neutral-700);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.el-file-upload__remove {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--el-neutral-500);
+  font-size: var(--el-text-lg);
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--el-duration-fast) var(--el-ease-out);
+
+  &:hover {
+    color: var(--el-error-500);
+  }
+}

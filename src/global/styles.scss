@@ -1,8 +1,312 @@
-$primary-background-color: #f0f0f0;
-$primary-font: 'Roboto', sans-serif;
+:root {
+  /* Color System - Neutral Palette (Modern Slate) */
+  --el-neutral-50: #f8fafc;
+  --el-neutral-100: #f1f5f9;
+  --el-neutral-200: #e2e8f0;
+  --el-neutral-300: #cbd5e1;
+  --el-neutral-400: #94a3b8;
+  --el-neutral-500: #64748b;
+  --el-neutral-600: #475569;
+  --el-neutral-700: #334155;
+  --el-neutral-800: #1e293b;
+  --el-neutral-900: #0f172a;
+  --el-neutral-950: #020617;
 
-body {
-  font-family: $primary-font;
-  background-color: $primary-background-color;
+  /* Color System - Primary / Brand (Vibrant Indigo-Blue) */
+  --el-primary-50: #eef2ff;
+  --el-primary-100: #e0e7ff;
+  --el-primary-200: #c7d2fe;
+  --el-primary-300: #a5b4fc;
+  --el-primary-400: #818cf8;
+  --el-primary-500: #6366f1;
+  --el-primary-600: #4f46e5;
+  --el-primary-700: #4338ca;
+  --el-primary-800: #3730a3;
+  --el-primary-900: #312e81;
+
+  /* Color System - Secondary (Violet) */
+  --el-secondary-50: #f5f3ff;
+  --el-secondary-100: #ede9fe;
+  --el-secondary-200: #ddd6fe;
+  --el-secondary-300: #c4b5fd;
+  --el-secondary-400: #a78bfa;
+  --el-secondary-500: #8b5cf6;
+  --el-secondary-600: #7c3aed;
+  --el-secondary-700: #6d28d9;
+  --el-secondary-800: #5b21b6;
+  --el-secondary-900: #4c1d95;
+
+  /* Color System - Accent (Cyan) */
+  --el-accent-50: #ecfeff;
+  --el-accent-100: #cffafe;
+  --el-accent-200: #a5f3fc;
+  --el-accent-300: #67e8f9;
+  --el-accent-400: #22d3ee;
+  --el-accent-500: #06b6d4;
+  --el-accent-600: #0891b2;
+  --el-accent-700: #0e7490;
+  --el-accent-800: #155e75;
+  --el-accent-900: #164e63;
+
+  /* Color System - Semantic (Enhanced) */
+  --el-success-50: #f0fdf4;
+  --el-success-100: #dcfce7;
+  --el-success-200: #bbf7d0;
+  --el-success-300: #86efac;
+  --el-success-400: #4ade80;
+  --el-success-500: #22c55e;
+  --el-success-600: #16a34a;
+  --el-success-700: #15803d;
+
+  --el-warning-50: #fffbeb;
+  --el-warning-100: #fef3c7;
+  --el-warning-200: #fde68a;
+  --el-warning-300: #fcd34d;
+  --el-warning-400: #fbbf24;
+  --el-warning-500: #f59e0b;
+  --el-warning-600: #d97706;
+  --el-warning-700: #b45309;
+
+  --el-error-50: #fef2f2;
+  --el-error-100: #fee2e2;
+  --el-error-200: #fecaca;
+  --el-error-300: #fca5a5;
+  --el-error-400: #f87171;
+  --el-error-500: #ef4444;
+  --el-error-600: #dc2626;
+  --el-error-700: #b91c1c;
+
+  --el-info-50: #eff6ff;
+  --el-info-100: #dbeafe;
+  --el-info-200: #bfdbfe;
+  --el-info-300: #93c5fd;
+  --el-info-400: #60a5fa;
+  --el-info-500: #3b82f6;
+  --el-info-600: #2563eb;
+  --el-info-700: #1d4ed8;
+
+  /* Surface Colors - Light */
+  --el-surface-base: #ffffff;
+  --el-surface-raised: #ffffff;
+  --el-surface-overlay: rgba(255, 255, 255, 0.95);
+  --el-surface-subtle: #f8fafc;
+  --el-surface-muted: #f1f5f9;
+
+  /* Gradient Presets */
+  --el-gradient-primary: linear-gradient(135deg, var(--el-primary-500) 0%, var(--el-primary-600) 100%);
+  --el-gradient-secondary: linear-gradient(135deg, var(--el-secondary-500) 0%, var(--el-secondary-600) 100%);
+  --el-gradient-accent: linear-gradient(135deg, var(--el-accent-400) 0%, var(--el-accent-600) 100%);
+  --el-gradient-success: linear-gradient(135deg, var(--el-success-400) 0%, var(--el-success-600) 100%);
+  --el-gradient-warning: linear-gradient(135deg, var(--el-warning-400) 0%, var(--el-warning-600) 100%);
+  --el-gradient-error: linear-gradient(135deg, var(--el-error-400) 0%, var(--el-error-600) 100%);
+  --el-gradient-subtle: linear-gradient(135deg, var(--el-neutral-50) 0%, var(--el-neutral-100) 100%);
+  --el-gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --el-gradient-shine: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+
+  /* Spacing Scale (8px base) */
+  --el-space-0: 0;
+  --el-space-1: 0.25rem;
+  --el-space-2: 0.5rem;
+  --el-space-3: 0.75rem;
+  --el-space-4: 1rem;
+  --el-space-5: 1.25rem;
+  --el-space-6: 1.5rem;
+  --el-space-8: 2rem;
+  --el-space-10: 2.5rem;
+  --el-space-12: 3rem;
+  --el-space-16: 4rem;
+  --el-space-20: 5rem;
+  --el-space-24: 6rem;
+
+  /* Typography - Families */
+  --el-font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  --el-font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+
+  /* Typography - Sizes */
+  --el-text-xs: 0.75rem;
+  --el-text-sm: 0.875rem;
+  --el-text-base: 1rem;
+  --el-text-lg: 1.125rem;
+  --el-text-xl: 1.25rem;
+  --el-text-2xl: 1.5rem;
+  --el-text-3xl: 1.875rem;
+  --el-text-4xl: 2.25rem;
+  --el-text-5xl: 3rem;
+
+  /* Typography - Weights */
+  --el-weight-normal: 400;
+  --el-weight-medium: 500;
+  --el-weight-semibold: 600;
+  --el-weight-bold: 700;
+
+  /* Typography - Line Heights */
+  --el-leading-tight: 1.25;
+  --el-leading-snug: 1.375;
+  --el-leading-normal: 1.5;
+  --el-leading-relaxed: 1.625;
+  --el-leading-loose: 2;
+
+  /* Typography - Letter Spacing */
+  --el-tracking-tight: -0.025em;
+  --el-tracking-normal: 0;
+  --el-tracking-wide: 0.025em;
+
+  /* Shadows - Modern with color tint */
+  --el-shadow-xs: 0 1px 2px 0 rgb(15 23 42 / 0.04);
+  --el-shadow-sm: 0 1px 3px 0 rgb(15 23 42 / 0.08), 0 1px 2px -1px rgb(15 23 42 / 0.08);
+  --el-shadow-md: 0 4px 6px -1px rgb(15 23 42 / 0.08), 0 2px 4px -2px rgb(15 23 42 / 0.06);
+  --el-shadow-lg: 0 10px 15px -3px rgb(15 23 42 / 0.1), 0 4px 6px -4px rgb(15 23 42 / 0.08);
+  --el-shadow-xl: 0 20px 25px -5px rgb(15 23 42 / 0.1), 0 8px 10px -6px rgb(15 23 42 / 0.08);
+  --el-shadow-2xl: 0 25px 50px -12px rgb(15 23 42 / 0.2);
+  --el-shadow-inner: inset 0 2px 4px 0 rgb(15 23 42 / 0.05);
+  
+  /* Focus Rings - Modern with primary color */
+  --el-shadow-focus: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  --el-shadow-focus-error: 0 0 0 3px rgba(239, 68, 68, 0.25);
+  --el-shadow-focus-success: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  
+  /* Colored Shadows for depth */
+  --el-shadow-primary: 0 4px 14px 0 rgba(99, 102, 241, 0.35);
+  --el-shadow-secondary: 0 4px 14px 0 rgba(139, 92, 246, 0.35);
+  --el-shadow-accent: 0 4px 14px 0 rgba(6, 182, 212, 0.35);
+  --el-shadow-success: 0 4px 14px 0 rgba(34, 197, 94, 0.35);
+  --el-shadow-warning: 0 4px 14px 0 rgba(245, 158, 11, 0.35);
+  --el-shadow-error: 0 4px 14px 0 rgba(239, 68, 68, 0.35);
+  
+  /* Glass/Blur Effects */
+  --el-blur-sm: 4px;
+  --el-blur-md: 8px;
+  --el-blur-lg: 16px;
+  --el-blur-xl: 24px;
+
+  /* Border Radius */
+  --el-radius-none: 0;
+  --el-radius-sm: 0.25rem;
+  --el-radius-base: 0.375rem;
+  --el-radius-md: 0.5rem;
+  --el-radius-lg: 0.75rem;
+  --el-radius-xl: 1rem;
+  --el-radius-2xl: 1.5rem;
+  --el-radius-full: 9999px;
+
+  /* Transitions */
+  --el-duration-fast: 150ms;
+  --el-duration-base: 200ms;
+  --el-duration-slow: 300ms;
+  --el-ease-linear: linear;
+  --el-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --el-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --el-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Borders */
+  --el-border-width-thin: 1px;
+  --el-border-width-base: 1.5px;
+  --el-border-width-thick: 2px;
+  --el-border-color: var(--el-neutral-200);
+  --el-border-color-hover: var(--el-neutral-300);
+  --el-border-color-focus: var(--el-primary-500);
+
+  /* Z-Index Scale */
+  --el-z-base: 0;
+  --el-z-dropdown: 1000;
+  --el-z-sticky: 1100;
+  --el-z-overlay: 1200;
+  --el-z-modal: 1300;
+  --el-z-popover: 1400;
+  --el-z-tooltip: 1500;
+  --el-z-notification: 1600;
 }
 
+[data-theme='dark'] {
+  /* Dark Mode - Inverted Slate Palette */
+  --el-neutral-50: #020617;
+  --el-neutral-100: #0f172a;
+  --el-neutral-200: #1e293b;
+  --el-neutral-300: #334155;
+  --el-neutral-400: #475569;
+  --el-neutral-500: #64748b;
+  --el-neutral-600: #94a3b8;
+  --el-neutral-700: #cbd5e1;
+  --el-neutral-800: #e2e8f0;
+  --el-neutral-900: #f1f5f9;
+  --el-neutral-950: #f8fafc;
+
+  /* Dark Surfaces */
+  --el-surface-base: #020617;
+  --el-surface-raised: #0f172a;
+  --el-surface-overlay: rgba(15, 23, 42, 0.95);
+  --el-surface-subtle: #0f172a;
+  --el-surface-muted: #1e293b;
+
+  /* Dark Borders */
+  --el-border-color: #334155;
+  --el-border-color-hover: #475569;
+  --el-border-color-focus: var(--el-primary-400);
+
+  /* Dark Shadows - Subtle glow effect */
+  --el-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --el-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.5);
+  --el-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --el-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --el-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+  --el-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+  --el-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.3);
+  
+  /* Dark Focus Rings - Brighter for visibility */
+  --el-shadow-focus: 0 0 0 3px rgba(129, 140, 248, 0.4);
+  --el-shadow-focus-error: 0 0 0 3px rgba(248, 113, 113, 0.4);
+  --el-shadow-focus-success: 0 0 0 3px rgba(74, 222, 128, 0.4);
+  
+  /* Dark Colored Shadows - Glow effect */
+  --el-shadow-primary: 0 4px 20px 0 rgba(129, 140, 248, 0.3);
+  --el-shadow-secondary: 0 4px 20px 0 rgba(167, 139, 250, 0.3);
+  --el-shadow-accent: 0 4px 20px 0 rgba(34, 211, 238, 0.3);
+  --el-shadow-success: 0 4px 20px 0 rgba(74, 222, 128, 0.3);
+  --el-shadow-warning: 0 4px 20px 0 rgba(251, 191, 36, 0.3);
+  --el-shadow-error: 0 4px 20px 0 rgba(248, 113, 113, 0.3);
+
+  /* Dark Gradients */
+  --el-gradient-subtle: linear-gradient(135deg, var(--el-neutral-100) 0%, var(--el-neutral-200) 100%);
+  --el-gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+/* Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--el-font-sans);
+  font-size: var(--el-text-base);
+  line-height: var(--el-leading-normal);
+  color: var(--el-neutral-900);
+  background-color: var(--el-surface-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--el-primary-200);
+  color: var(--el-primary-900);
+}
+
+[data-theme='dark'] ::selection {
+  background-color: var(--el-primary-700);
+  color: var(--el-primary-100);
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--el-shadow-focus);
+}
+
+/* Smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

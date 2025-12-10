@@ -1,0 +1,38 @@
+.el-empty-state {
+  display: block;
+  font-family: var(--el-font-sans);
+}
+
+.el-empty-state__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--el-space-12);
+  text-align: center;
+}
+
+.el-empty-state__icon {
+  margin-bottom: var(--el-space-4);
+  font-size: var(--el-text-5xl);
+  color: var(--el-neutral-400);
+}
+
+.el-empty-state__title {
+  margin-bottom: var(--el-space-2);
+  font-size: var(--el-text-xl);
+  font-weight: var(--el-weight-semibold);
+  color: var(--el-neutral-900);
+}
+
+.el-empty-state__description {
+  margin-bottom: var(--el-space-4);
+  font-size: var(--el-text-sm);
+  color: var(--el-neutral-600);
+  max-width: 32rem;
+}
+
+.el-empty-state__actions {
+  display: flex;
+  gap: var(--el-space-2);
+}

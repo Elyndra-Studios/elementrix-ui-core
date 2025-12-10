@@ -1,0 +1,11 @@
+.el-tab-panel {
+  display: none;
+}
+
+.el-tab-panel--active {
+  display: block;
+}
+
+.el-tab-panel__content {
+  padding: var(--el-space-4);
+}

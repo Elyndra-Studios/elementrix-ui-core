@@ -1,0 +1,28 @@
+.el-tabs {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--el-font-sans);
+}
+
+.el-tabs__header {
+  display: flex;
+  gap: var(--el-space-2);
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+}
+
+.el-tabs__panels {
+  padding: var(--el-space-4);
+}
+
+.el-tabs--line .el-tabs__header {
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+}
+
+.el-tabs--enclosed .el-tabs__header {
+  border-bottom: none;
+}
+
+.el-tabs--pills .el-tabs__header {
+  border-bottom: none;
+  gap: var(--el-space-1);
+}

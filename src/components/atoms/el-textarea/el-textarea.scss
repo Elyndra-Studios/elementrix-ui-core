@@ -1,0 +1,100 @@
+.el-textarea__wrapper {
+  display: block;
+  width: 100%;
+
+  padding: var(--el-space-3) var(--el-space-4);
+
+  border-radius: var(--el-radius-lg);
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+
+  background-color: var(--el-surface-base);
+  box-shadow: var(--el-shadow-xs);
+
+  transition: all var(--el-duration-fast) var(--el-ease-out);
+  
+  &:hover:not(:focus-within) {
+    border-color: var(--el-border-color-hover);
+    background-color: var(--el-surface-subtle);
+  }
+}
+
+.el-textarea__control {
+  width: 100%;
+  min-height: 5rem;
+  display: block;
+  border: none;
+  outline: none;
+  resize: vertical;
+
+  font-family: var(--el-font-sans);
+  font-size: var(--el-text-sm);
+  line-height: var(--el-leading-relaxed);
+  color: var(--el-neutral-900);
+
+  background: transparent;
+
+  &::placeholder {
+    color: var(--el-neutral-400);
+  }
+}
+
+.el-textarea--sm .el-textarea__wrapper {
+  padding: var(--el-space-2) var(--el-space-3);
+  border-radius: var(--el-radius-md);
+}
+
+.el-textarea--sm .el-textarea__control {
+  min-height: 3.5rem;
+  font-size: var(--el-text-xs);
+}
+
+.el-textarea--lg .el-textarea__wrapper {
+  padding: var(--el-space-4) var(--el-space-5);
+  border-radius: var(--el-radius-xl);
+}
+
+.el-textarea--lg .el-textarea__control {
+  min-height: 8rem;
+  font-size: var(--el-text-base);
+}
+
+.el-textarea__wrapper:focus-within {
+  border-color: var(--el-primary-500);
+  box-shadow: var(--el-shadow-focus);
+  background-color: var(--el-surface-base);
+}
+
+.el-textarea--disabled .el-textarea__wrapper {
+  background-color: var(--el-surface-muted);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.el-textarea--disabled .el-textarea__control {
+  cursor: not-allowed;
+  color: var(--el-neutral-400);
+}
+
+.el-textarea--error .el-textarea__wrapper {
+  border-color: var(--el-error-500);
+  
+  &:focus-within {
+    box-shadow: var(--el-shadow-focus-error);
+  }
+}
+
+.el-textarea__error {
+  margin-top: var(--el-space-2);
+  font-size: var(--el-text-xs);
+  color: var(--el-error-500);
+  display: flex;
+  align-items: center;
+  gap: var(--el-space-1);
+}
+
+.el-textarea__counter {
+  margin-top: var(--el-space-2);
+  font-size: var(--el-text-xs);
+  color: var(--el-neutral-500);
+  text-align: right;
+}

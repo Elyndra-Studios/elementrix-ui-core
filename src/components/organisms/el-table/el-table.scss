@@ -1,0 +1,44 @@
+.el-table__wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+  border-radius: var(--el-radius-md);
+}
+
+.el-table__inner {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--el-font-sans);
+  font-size: var(--el-text-sm);
+  color: var(--el-neutral-900);
+}
+
+.el-table__inner :slotted(thead) {
+  background-color: var(--el-surface-subtle);
+  border-bottom: var(--el-border-width-thin) solid var(--el-border-color);
+}
+
+.el-table__inner :slotted(th) {
+  padding: var(--el-space-3) var(--el-space-4);
+  text-align: left;
+  font-weight: var(--el-weight-semibold);
+  color: var(--el-neutral-700);
+}
+
+.el-table__inner :slotted(td) {
+  padding: var(--el-space-3) var(--el-space-4);
+  border-top: var(--el-border-width-thin) solid var(--el-border-color);
+}
+
+.el-table--striped .el-table__inner :slotted(tbody tr:nth-child(even)) {
+  background-color: var(--el-surface-subtle);
+}
+
+.el-table--hoverable .el-table__inner :slotted(tbody tr:hover) {
+  background-color: var(--el-surface-subtle);
+}
+
+.el-table--bordered .el-table__inner :slotted(th),
+.el-table--bordered .el-table__inner :slotted(td) {
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+}

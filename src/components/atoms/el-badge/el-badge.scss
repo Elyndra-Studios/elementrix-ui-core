@@ -1,0 +1,144 @@
+.el-badge__inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--el-space-1);
+
+  padding-inline: var(--el-space-3);
+  padding-block: var(--el-space-1);
+
+  border-radius: var(--el-radius-md);
+
+  font-family: var(--el-font-sans);
+  font-weight: var(--el-weight-semibold);
+  font-size: var(--el-text-xs);
+  letter-spacing: var(--el-tracking-wide);
+  text-transform: uppercase;
+
+  background-color: var(--el-neutral-100);
+  color: var(--el-neutral-700);
+  border: 1px solid var(--el-neutral-200);
+  
+  transition: all var(--el-duration-fast) var(--el-ease-out);
+}
+
+.el-badge--pill .el-badge__inner {
+  border-radius: var(--el-radius-full);
+  padding-inline: var(--el-space-3);
+}
+
+.el-badge--sm .el-badge__inner {
+  font-size: 0.625rem;
+  padding-inline: var(--el-space-2);
+  padding-block: 0.125rem;
+}
+
+.el-badge--md .el-badge__inner {
+  font-size: var(--el-text-xs);
+}
+
+.el-badge--lg .el-badge__inner {
+  font-size: var(--el-text-sm);
+  padding-inline: var(--el-space-4);
+  padding-block: var(--el-space-2);
+}
+
+/* Variants */
+
+.el-badge--primary .el-badge__inner {
+  background: linear-gradient(135deg, var(--el-primary-50) 0%, var(--el-primary-100) 100%);
+  color: var(--el-primary-700);
+  border-color: var(--el-primary-200);
+}
+
+.el-badge--secondary .el-badge__inner {
+  background: linear-gradient(135deg, var(--el-secondary-50) 0%, var(--el-secondary-100) 100%);
+  color: var(--el-secondary-700);
+  border-color: var(--el-secondary-200);
+}
+
+.el-badge--accent .el-badge__inner {
+  background: linear-gradient(135deg, var(--el-accent-50) 0%, var(--el-accent-100) 100%);
+  color: var(--el-accent-700);
+  border-color: var(--el-accent-200);
+}
+
+.el-badge--success .el-badge__inner {
+  background: linear-gradient(135deg, var(--el-success-50) 0%, var(--el-success-100) 100%);
+  color: var(--el-success-700);
+  border-color: var(--el-success-200);
+}
+
+.el-badge--warning .el-badge__inner {
+  background: linear-gradient(135deg, var(--el-warning-50) 0%, var(--el-warning-100) 100%);
+  color: var(--el-warning-700);
+  border-color: var(--el-warning-200);
+}
+
+.el-badge--error .el-badge__inner {
+  background: linear-gradient(135deg, var(--el-error-50) 0%, var(--el-error-100) 100%);
+  color: var(--el-error-700);
+  border-color: var(--el-error-200);
+}
+
+.el-badge--info .el-badge__inner {
+  background: linear-gradient(135deg, var(--el-info-50) 0%, var(--el-info-100) 100%);
+  color: var(--el-info-700);
+  border-color: var(--el-info-200);
+}
+
+/* Solid Variants */
+
+.el-badge--solid.el-badge--primary .el-badge__inner {
+  background: var(--el-gradient-primary);
+  color: white;
+  border-color: transparent;
+}
+
+.el-badge--solid.el-badge--success .el-badge__inner {
+  background: var(--el-gradient-success);
+  color: white;
+  border-color: transparent;
+}
+
+.el-badge--solid.el-badge--error .el-badge__inner {
+  background: var(--el-gradient-error);
+  color: white;
+  border-color: transparent;
+}
+
+/* Dot variant */
+
+.el-badge--dot .el-badge__inner {
+  width: 0.625rem;
+  height: 0.625rem;
+  padding: 0;
+  border-radius: var(--el-radius-full);
+  font-size: 0;
+  border: none;
+  box-shadow: 0 0 0 2px var(--el-surface-base);
+}
+
+.el-badge--dot.el-badge--primary .el-badge__inner {
+  background-color: var(--el-primary-500);
+}
+
+.el-badge--dot.el-badge--success .el-badge__inner {
+  background-color: var(--el-success-500);
+}
+
+.el-badge--dot.el-badge--error .el-badge__inner {
+  background-color: var(--el-error-500);
+}
+
+/* Outline variant */
+
+.el-badge--outline .el-badge__inner {
+  background: transparent;
+}
+
+.el-badge--outline.el-badge--primary .el-badge__inner {
+  border-color: var(--el-primary-500);
+  color: var(--el-primary-600);
+  background: transparent;
+}

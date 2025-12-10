@@ -3,23 +3,31 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'elementrix-ui',
+  buildDist: true,
   outputTargets: [
     {
       type: 'dist',
-      esmLoaderPath: './loader',  // Update this to point to 'loader' inside 'dist'
+      esmLoaderPath: './loader',
+    },
+    {
+      type: 'dist-custom-elements',
     },
     {
       type: 'docs-readme',
     },
     {
+      type: 'docs-json',
+      file: 'dist/custom-elements.json',
+    },
+    {
       type: 'www',
       dir: 'www',
-      serviceWorker: null, // Disable service worker
+      serviceWorker: null,
     },
   ],
   plugins: [
     sass({
-      injectGlobalPaths: ['src/global/styles.scss'], // Ensure this path is correct
+      injectGlobalPaths: ['src/global/styles.scss'],
     }),
   ],
 };

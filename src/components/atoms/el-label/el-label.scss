@@ -1,0 +1,47 @@
+.el-label__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--el-space-1);
+
+  font-family: var(--el-font-sans);
+  font-weight: var(--el-weight-semibold);
+  color: var(--el-neutral-800);
+  letter-spacing: var(--el-tracking-tight);
+}
+
+.el-label--sm .el-label__inner {
+  font-size: var(--el-text-xs);
+  font-weight: var(--el-weight-medium);
+}
+
+.el-label--md .el-label__inner {
+  font-size: var(--el-text-sm);
+}
+
+.el-label--lg .el-label__inner {
+  font-size: var(--el-text-base);
+}
+
+.el-label__required-indicator {
+  color: var(--el-error-500);
+  font-weight: var(--el-weight-bold);
+}
+
+.el-label__optional-text {
+  margin-left: var(--el-space-2);
+  font-size: var(--el-text-xs);
+  font-weight: var(--el-weight-normal);
+  color: var(--el-neutral-400);
+  padding: var(--el-space-1) var(--el-space-2);
+  background-color: var(--el-neutral-100);
+  border-radius: var(--el-radius-sm);
+}
+
+.el-label__hint {
+  display: block;
+  margin-top: var(--el-space-1);
+  font-size: var(--el-text-xs);
+  font-weight: var(--el-weight-normal);
+  color: var(--el-neutral-500);
+  line-height: var(--el-leading-relaxed);
+}

@@ -1,0 +1,31 @@
+.el-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--el-space-1);
+
+  font-family: var(--el-font-sans);
+}
+
+.el-form-field__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.el-form-field__control {
+  margin-top: var(--el-space-1);
+}
+
+.el-form-field__hint {
+  font-size: var(--el-text-xs);
+  color: var(--el-neutral-500);
+}
+
+.el-form-field__error {
+  font-size: var(--el-text-xs);
+  color: var(--el-error-500);
+}
+
+.el-form-field--error .el-form-field__control {
+  /* Additional emphasis for error state if needed */
+}

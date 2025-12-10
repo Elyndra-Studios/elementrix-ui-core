@@ -1,0 +1,17 @@
+.el-stepper {
+  display: block;
+  font-family: var(--el-font-sans);
+}
+
+.el-stepper__inner {
+  display: flex;
+  gap: var(--el-space-4);
+}
+
+.el-stepper--horizontal .el-stepper__inner {
+  flex-direction: row;
+}
+
+.el-stepper--vertical .el-stepper__inner {
+  flex-direction: column;
+}

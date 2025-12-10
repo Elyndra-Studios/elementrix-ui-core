@@ -1,0 +1,35 @@
+.el-color-picker {
+  display: inline-block;
+  font-family: var(--el-font-sans);
+}
+
+.el-color-picker__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--el-space-2);
+  padding: var(--el-space-2);
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+  border-radius: var(--el-radius-md);
+  background-color: var(--el-surface-base);
+}
+
+.el-color-picker__input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.el-color-picker__preview {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--el-radius-md);
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+}
+
+.el-color-picker__value {
+  font-size: var(--el-text-sm);
+  color: var(--el-neutral-700);
+  font-family: var(--el-font-mono);
+}

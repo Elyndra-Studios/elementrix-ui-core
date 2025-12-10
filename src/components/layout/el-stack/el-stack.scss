@@ -1,0 +1,16 @@
+.el-stack {
+  display: block;
+  font-family: var(--el-font-sans);
+}
+
+.el-stack__inner {
+  display: flex;
+}
+
+.el-stack--vertical .el-stack__inner {
+  flex-direction: column;
+}
+
+.el-stack--horizontal .el-stack__inner {
+  flex-direction: row;
+}

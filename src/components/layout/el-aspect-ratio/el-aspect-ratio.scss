@@ -1,0 +1,18 @@
+.el-aspect-ratio {
+  display: block;
+  font-family: var(--el-font-sans);
+}
+
+.el-aspect-ratio__inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.el-aspect-ratio__inner ::slotted(*) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

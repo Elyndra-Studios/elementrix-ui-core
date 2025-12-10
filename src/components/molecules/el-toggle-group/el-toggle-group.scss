@@ -1,0 +1,7 @@
+.el-toggle-group__inner {
+  display: inline-flex;
+  border: var(--el-border-width-thin) solid var(--el-border-color);
+  border-radius: var(--el-radius-md);
+  overflow: hidden;
+  font-family: var(--el-font-sans);
+}

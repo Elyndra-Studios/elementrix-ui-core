@@ -5,39 +5,2639 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Event } from "@stencil/core";
+export { Event } from "@stencil/core";
 export namespace Components {
-    interface UiButton {
+    interface ElAccordion {
+        /**
+          * Allow multiple items to be open at once
+          * @default false
+         */
+        "multiple": boolean;
+    }
+    interface ElAccordionItem {
+        /**
+          * Item heading text
+         */
+        "heading": string;
+        /**
+          * Open state
+          * @default false
+         */
+        "open": boolean;
+    }
+    interface ElAlert {
+        /**
+          * Dismissible
+          * @default false
+         */
+        "dismissible": boolean;
+        /**
+          * Visual variant
+          * @default 'info'
+         */
+        "variant": 'info' | 'success' | 'warning' | 'error';
+    }
+    interface ElAspectRatio {
+        /**
+          * Aspect ratio
+          * @default '16/9'
+         */
+        "ratio": '16/9' | '4/3' | '1/1' | string;
+    }
+    interface ElBadge {
+        /**
+          * Dot-only badge
+          * @default false
+         */
+        "dot": boolean;
+        /**
+          * Pill shape
+          * @default false
+         */
+        "pill": boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Visual variant
+          * @default 'default'
+         */
+        "variant": 'default' | 'primary' | 'success' | 'warning' | 'error' | 'info';
+    }
+    interface ElBreadcrumbs {
+        /**
+          * Max items to show before collapsing
+         */
+        "maxItems"?: number;
+        /**
+          * Separator character or element
+          * @default '/'
+         */
+        "separator": string;
+    }
+    interface ElButton {
+        /**
+          * Disabled state
+          * @default false
+         */
         "disabled": boolean;
-        "size": 'small' | 'medium' | 'large';
-        "theme": 'primary' | 'secondary' | 'danger';
+        /**
+          * Make button take full width of its container
+          * @default false
+         */
+        "fullWidth": boolean;
+        /**
+          * Icon-only button (no text)
+          * @default false
+         */
+        "iconOnly": boolean;
+        /**
+          * Loading state
+          * @default false
+         */
+        "loading": boolean;
+        /**
+          * Size of the button
+          * @default 'md'
+         */
+        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        /**
+          * Visual variant of the button
+          * @default 'primary'
+         */
+        "variant": 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger';
+    }
+    interface ElCalendar {
+        /**
+          * Current date
+         */
+        "value"?: Date;
+    }
+    interface ElCard {
+        /**
+          * Clickable state
+          * @default false
+         */
+        "clickable": boolean;
+        /**
+          * Hoverable state
+          * @default false
+         */
+        "hoverable": boolean;
+        /**
+          * Visual variant
+          * @default 'elevated'
+         */
+        "variant": 'elevated' | 'outlined' | 'flat';
+    }
+    interface ElCarousel {
+        /**
+          * Autoplay
+          * @default false
+         */
+        "autoplay": boolean;
+        /**
+          * Interval in ms
+          * @default 3000
+         */
+        "interval": number;
+        /**
+          * Loop
+          * @default true
+         */
+        "loop": boolean;
+        /**
+          * Show arrows
+          * @default true
+         */
+        "showArrows": boolean;
+        /**
+          * Show indicators
+          * @default true
+         */
+        "showIndicators": boolean;
+    }
+    interface ElCheckbox {
+        /**
+          * Checked state
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Indeterminate state
+          * @default false
+         */
+        "indeterminate": boolean;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+    }
+    interface ElChip {
+        /**
+          * Clickable
+          * @default false
+         */
+        "clickable": boolean;
+        /**
+          * Removable
+          * @default false
+         */
+        "removable": boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Visual variant
+          * @default 'filled'
+         */
+        "variant": 'filled' | 'outlined';
+    }
+    interface ElColorPicker {
+        /**
+          * Current value
+          * @default '#3b82f6'
+         */
+        "value": string;
+    }
+    interface ElCommand {
+        /**
+          * Open state
+          * @default false
+         */
+        "open": boolean;
+        /**
+          * Placeholder
+          * @default 'Type a command or search...'
+         */
+        "placeholder": string;
+    }
+    interface ElContainer {
+        /**
+          * Max width
+          * @default 'lg'
+         */
+        "maxWidth": 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+        /**
+          * Padding
+          * @default true
+         */
+        "padding": boolean;
+    }
+    interface ElDataGrid {
+        /**
+          * Filterable
+          * @default false
+         */
+        "filterable": boolean;
+        /**
+          * Selectable
+          * @default false
+         */
+        "selectable": boolean;
+        /**
+          * Sortable
+          * @default false
+         */
+        "sortable": boolean;
+    }
+    interface ElDatePicker {
+        /**
+          * Format
+          * @default 'MM/DD/YYYY'
+         */
+        "format": string;
+        /**
+          * Placeholder
+          * @default 'Select date'
+         */
+        "placeholder": string;
+        /**
+          * Type
+          * @default 'single'
+         */
+        "type": 'single' | 'range';
+    }
+    interface ElDrawer {
+        /**
+          * Closable
+          * @default true
+         */
+        "closable": boolean;
+        /**
+          * Open state
+          * @default false
+         */
+        "open": boolean;
+        /**
+          * Placement
+          * @default 'right'
+         */
+        "placement": 'left' | 'right' | 'top' | 'bottom';
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg' | 'xl';
+    }
+    interface ElDropdown {
+        /**
+          * Placement
+          * @default 'bottom'
+         */
+        "placement": 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Trigger
+          * @default 'click'
+         */
+        "trigger": 'click' | 'hover';
+    }
+    interface ElEmptyState {
+        /**
+          * Description
+         */
+        "description"?: string;
+        /**
+          * Heading text
+         */
+        "heading"?: string;
+    }
+    interface ElFileUpload {
+        /**
+          * Accept file types
+         */
+        "accept"?: string;
+        /**
+          * Max files
+         */
+        "maxFiles"?: number;
+        /**
+          * Max file size in bytes
+         */
+        "maxSize"?: number;
+        /**
+          * Multiple files
+          * @default false
+         */
+        "multiple": boolean;
+        /**
+          * Variant
+          * @default 'dropzone'
+         */
+        "variant": 'button' | 'dropzone';
+    }
+    interface ElForm {
+        /**
+          * Layout
+          * @default 'vertical'
+         */
+        "layout": 'vertical' | 'horizontal';
+    }
+    interface ElFormField {
+        /**
+          * Error text (used when no custom error slot is provided)
+         */
+        "error"?: string;
+        /**
+          * Hint text (used when no custom hint slot is provided)
+         */
+        "hint"?: string;
+        /**
+          * Label text (used when no custom label slot is provided)
+         */
+        "label"?: string;
+        /**
+          * Mark the associated control as optional
+          * @default false
+         */
+        "optional": boolean;
+        /**
+          * Mark the associated control as required
+          * @default false
+         */
+        "required": boolean;
+    }
+    interface ElGrid {
+        /**
+          * Number of columns
+          * @default 'auto'
+         */
+        "cols": number | string;
+        /**
+          * Gap size
+          * @default 'var(--el-space-4)'
+         */
+        "gap": string;
+        /**
+          * Responsive breakpoints
+          * @default false
+         */
+        "responsive": boolean;
+    }
+    interface ElImage {
+        /**
+          * Alt text
+          * @default ''
+         */
+        "alt": string;
+        /**
+          * Object fit
+          * @default 'cover'
+         */
+        "fit": 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+        /**
+          * Lazy loading
+          * @default false
+         */
+        "lazy": boolean;
+        /**
+          * Image source
+         */
+        "src": string;
+    }
+    interface ElInput {
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Error state
+         */
+        "error"?: string;
+        /**
+          * Placeholder text
+         */
+        "placeholder"?: string;
+        /**
+          * Readonly state
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * Required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Input type
+          * @default 'text'
+         */
+        "type": 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search';
+        /**
+          * Current value (uncontrolled for now)
+         */
+        "value"?: string;
+    }
+    interface ElLabel {
+        /**
+          * Id of the form control this label is for
+         */
+        "for"?: string;
+        /**
+          * Mark the associated field as optional
+          * @default false
+         */
+        "optional": boolean;
+        /**
+          * Mark the associated field as required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+    }
+    interface ElMenu {
+    }
+    interface ElMenuItem {
+        /**
+          * Active state
+          * @default false
+         */
+        "active": boolean;
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Link href
+         */
+        "href"?: string;
+    }
+    interface ElModal {
+        /**
+          * Closable (show close button)
+          * @default true
+         */
+        "closable": boolean;
+        /**
+          * Close on backdrop click
+          * @default true
+         */
+        "closeOnBackdrop": boolean;
+        /**
+          * Open state
+          * @default false
+         */
+        "open": boolean;
+        /**
+          * Persistent (prevent closing)
+          * @default false
+         */
+        "persistent": boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg' | 'xl' | 'full';
+    }
+    interface ElNav {
+        /**
+          * Variant
+          * @default 'topbar'
+         */
+        "variant": 'sidebar' | 'topbar';
+    }
+    interface ElPagination {
+        /**
+          * Current page (1-indexed)
+          * @default 1
+         */
+        "page": number;
+        /**
+          * Items per page
+          * @default 10
+         */
+        "pageSize": number;
+        /**
+          * Show page size changer
+          * @default false
+         */
+        "showSizeChanger": boolean;
+        /**
+          * Total number of items
+          * @default 0
+         */
+        "total": number;
+    }
+    interface ElPopover {
+        /**
+          * Controlled open state
+          * @default false
+         */
+        "open": boolean;
+        /**
+          * Placement
+          * @default 'bottom'
+         */
+        "placement": 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Trigger
+          * @default 'click'
+         */
+        "trigger": 'click' | 'hover' | 'focus';
+    }
+    interface ElPortal {
+        /**
+          * Target selector or element
+          * @default 'body'
+         */
+        "target": string;
+    }
+    interface ElProgress {
+        /**
+          * Indeterminate state
+          * @default false
+         */
+        "indeterminate": boolean;
+        /**
+          * Max value
+          * @default 100
+         */
+        "max": number;
+        /**
+          * Show value text
+          * @default false
+         */
+        "showValue": boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Current value (0-100)
+          * @default 0
+         */
+        "value": number;
+        /**
+          * Visual variant
+          * @default 'bar'
+         */
+        "variant": 'bar' | 'circle';
+    }
+    interface ElRating {
+        /**
+          * Max rating
+          * @default 5
+         */
+        "max": number;
+        /**
+          * Readonly
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Current value
+          * @default 0
+         */
+        "value": number;
+    }
+    interface ElSearch {
+        /**
+          * Debounce delay in ms
+          * @default 300
+         */
+        "debounce": number;
+        /**
+          * Placeholder
+          * @default 'Search...'
+         */
+        "placeholder": string;
+        /**
+          * Current value
+          * @default ''
+         */
+        "value": string;
+    }
+    interface ElSelect {
+        /**
+          * Disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Multiple selection
+          * @default false
+         */
+        "multiple": boolean;
+        /**
+          * Placeholder
+          * @default 'Select...'
+         */
+        "placeholder": string;
+        /**
+          * Searchable
+          * @default false
+         */
+        "searchable": boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Current value
+         */
+        "value"?: string | string[];
+    }
+    interface ElSidebar {
+        /**
+          * Collapsed state
+          * @default false
+         */
+        "collapsed": boolean;
+        /**
+          * Collapsible
+          * @default false
+         */
+        "collapsible": boolean;
+        /**
+          * Placement
+          * @default 'left'
+         */
+        "placement": 'left' | 'right';
+    }
+    interface ElSkeleton {
+        /**
+          * Height
+         */
+        "height"?: string;
+        /**
+          * Number of rows (for text variant)
+          * @default 1
+         */
+        "rows": number;
+        /**
+          * Visual variant
+          * @default 'text'
+         */
+        "variant": 'text' | 'circle' | 'rectangle';
+        /**
+          * Width
+         */
+        "width"?: string;
+    }
+    interface ElSlider {
+        /**
+          * Disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Max value
+          * @default 100
+         */
+        "max": number;
+        /**
+          * Min value
+          * @default 0
+         */
+        "min": number;
+        /**
+          * Step
+          * @default 1
+         */
+        "step": number;
+        /**
+          * Current value
+          * @default 0
+         */
+        "value": number;
+    }
+    interface ElSpacer {
+        /**
+          * Size from spacing scale
+          * @default 'var(--el-space-4)'
+         */
+        "size": string;
+    }
+    interface ElStack {
+        /**
+          * Align items
+         */
+        "align"?: 'start' | 'center' | 'end' | 'stretch';
+        /**
+          * Direction
+          * @default 'vertical'
+         */
+        "direction": 'vertical' | 'horizontal';
+        /**
+          * Justify content
+         */
+        "justify"?: 'start' | 'center' | 'end' | 'between' | 'around';
+        /**
+          * Spacing
+          * @default 'var(--el-space-4)'
+         */
+        "spacing": string;
+    }
+    interface ElStepper {
+        /**
+          * Current step (0-indexed)
+          * @default 0
+         */
+        "currentStep": number;
+        /**
+          * Variant
+          * @default 'horizontal'
+         */
+        "variant": 'horizontal' | 'vertical';
+    }
+    interface ElSwitch {
+        /**
+          * Checked state
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+    }
+    interface ElTabPanel {
+        /**
+          * Active state
+          * @default false
+         */
+        "active": boolean;
+        /**
+          * Tab label
+         */
+        "label": string;
+    }
+    interface ElTable {
+        /**
+          * Bordered
+          * @default false
+         */
+        "bordered": boolean;
+        /**
+          * Hoverable rows
+          * @default false
+         */
+        "hoverable": boolean;
+        /**
+          * Striped rows
+          * @default false
+         */
+        "striped": boolean;
+    }
+    interface ElTabs {
+        /**
+          * Active tab index
+          * @default 0
+         */
+        "activeTab": number;
+        /**
+          * Visual variant
+          * @default 'line'
+         */
+        "variant": 'line' | 'enclosed' | 'pills';
+    }
+    interface ElTextarea {
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Error text
+         */
+        "error"?: string;
+        /**
+          * Max length for the value
+         */
+        "maxLength"?: number;
+        /**
+          * Readonly state
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * Whether the textarea is resizable
+          * @default 'vertical'
+         */
+        "resize": 'none' | 'vertical' | 'horizontal' | 'both';
+        /**
+          * Number of rows
+          * @default 3
+         */
+        "rows": number;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Current value (uncontrolled for now)
+         */
+        "value"?: string;
+    }
+    interface ElTimePicker {
+        /**
+          * Format
+          * @default '12h'
+         */
+        "format": '12h' | '24h';
+        /**
+          * Placeholder
+          * @default 'Select time'
+         */
+        "placeholder": string;
+    }
+    interface ElToggleGroup {
+        /**
+          * Selection type
+          * @default 'single'
+         */
+        "type": 'single' | 'multiple';
+        /**
+          * Current value(s)
+         */
+        "value"?: string | string[];
+    }
+    interface ElTooltip {
+        /**
+          * Tooltip content text
+         */
+        "content"?: string;
+        /**
+          * Placement
+          * @default 'top'
+         */
+        "placement": 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Trigger
+          * @default 'hover'
+         */
+        "trigger": 'hover' | 'click' | 'focus';
+    }
+    interface ElTransition {
+        /**
+          * Duration in ms
+          * @default 200
+         */
+        "duration": number;
+        /**
+          * Show state
+          * @default true
+         */
+        "show": boolean;
+        /**
+          * Variant
+          * @default 'fade'
+         */
+        "variant": 'fade' | 'slide' | 'scale' | 'collapse';
     }
 }
+export interface ElAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElAlertElement;
+}
+export interface ElCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElCheckboxElement;
+}
+export interface ElChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElChipElement;
+}
+export interface ElColorPickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElColorPickerElement;
+}
+export interface ElDrawerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElDrawerElement;
+}
+export interface ElFileUploadCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElFileUploadElement;
+}
+export interface ElFormCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElFormElement;
+}
+export interface ElInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElInputElement;
+}
+export interface ElModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElModalElement;
+}
+export interface ElPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElPaginationElement;
+}
+export interface ElRatingCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElRatingElement;
+}
+export interface ElSearchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElSearchElement;
+}
+export interface ElSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElSelectElement;
+}
+export interface ElSliderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElSliderElement;
+}
+export interface ElStepperCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElStepperElement;
+}
+export interface ElSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElSwitchElement;
+}
+export interface ElTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElTabsElement;
+}
+export interface ElTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElTextareaElement;
+}
+export interface ElToggleGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLElToggleGroupElement;
+}
 declare global {
-    interface HTMLUiButtonElement extends Components.UiButton, HTMLStencilElement {
+    interface HTMLElAccordionElement extends Components.ElAccordion, HTMLStencilElement {
     }
-    var HTMLUiButtonElement: {
-        prototype: HTMLUiButtonElement;
-        new (): HTMLUiButtonElement;
+    var HTMLElAccordionElement: {
+        prototype: HTMLElAccordionElement;
+        new (): HTMLElAccordionElement;
+    };
+    interface HTMLElAccordionItemElement extends Components.ElAccordionItem, HTMLStencilElement {
+    }
+    var HTMLElAccordionItemElement: {
+        prototype: HTMLElAccordionItemElement;
+        new (): HTMLElAccordionItemElement;
+    };
+    interface HTMLElAlertElementEventMap {
+        "elDismiss": void;
+    }
+    interface HTMLElAlertElement extends Components.ElAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElAlertElementEventMap>(type: K, listener: (this: HTMLElAlertElement, ev: ElAlertCustomEvent<HTMLElAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElAlertElementEventMap>(type: K, listener: (this: HTMLElAlertElement, ev: ElAlertCustomEvent<HTMLElAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElAlertElement: {
+        prototype: HTMLElAlertElement;
+        new (): HTMLElAlertElement;
+    };
+    interface HTMLElAspectRatioElement extends Components.ElAspectRatio, HTMLStencilElement {
+    }
+    var HTMLElAspectRatioElement: {
+        prototype: HTMLElAspectRatioElement;
+        new (): HTMLElAspectRatioElement;
+    };
+    interface HTMLElBadgeElement extends Components.ElBadge, HTMLStencilElement {
+    }
+    var HTMLElBadgeElement: {
+        prototype: HTMLElBadgeElement;
+        new (): HTMLElBadgeElement;
+    };
+    interface HTMLElBreadcrumbsElement extends Components.ElBreadcrumbs, HTMLStencilElement {
+    }
+    var HTMLElBreadcrumbsElement: {
+        prototype: HTMLElBreadcrumbsElement;
+        new (): HTMLElBreadcrumbsElement;
+    };
+    interface HTMLElButtonElement extends Components.ElButton, HTMLStencilElement {
+    }
+    var HTMLElButtonElement: {
+        prototype: HTMLElButtonElement;
+        new (): HTMLElButtonElement;
+    };
+    interface HTMLElCalendarElement extends Components.ElCalendar, HTMLStencilElement {
+    }
+    var HTMLElCalendarElement: {
+        prototype: HTMLElCalendarElement;
+        new (): HTMLElCalendarElement;
+    };
+    interface HTMLElCardElement extends Components.ElCard, HTMLStencilElement {
+    }
+    var HTMLElCardElement: {
+        prototype: HTMLElCardElement;
+        new (): HTMLElCardElement;
+    };
+    interface HTMLElCarouselElement extends Components.ElCarousel, HTMLStencilElement {
+    }
+    var HTMLElCarouselElement: {
+        prototype: HTMLElCarouselElement;
+        new (): HTMLElCarouselElement;
+    };
+    interface HTMLElCheckboxElementEventMap {
+        "elChange": boolean;
+    }
+    interface HTMLElCheckboxElement extends Components.ElCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElCheckboxElementEventMap>(type: K, listener: (this: HTMLElCheckboxElement, ev: ElCheckboxCustomEvent<HTMLElCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElCheckboxElementEventMap>(type: K, listener: (this: HTMLElCheckboxElement, ev: ElCheckboxCustomEvent<HTMLElCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElCheckboxElement: {
+        prototype: HTMLElCheckboxElement;
+        new (): HTMLElCheckboxElement;
+    };
+    interface HTMLElChipElementEventMap {
+        "elRemove": void;
+        "elClick": void;
+    }
+    interface HTMLElChipElement extends Components.ElChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElChipElementEventMap>(type: K, listener: (this: HTMLElChipElement, ev: ElChipCustomEvent<HTMLElChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElChipElementEventMap>(type: K, listener: (this: HTMLElChipElement, ev: ElChipCustomEvent<HTMLElChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElChipElement: {
+        prototype: HTMLElChipElement;
+        new (): HTMLElChipElement;
+    };
+    interface HTMLElColorPickerElementEventMap {
+        "elChange": string;
+    }
+    interface HTMLElColorPickerElement extends Components.ElColorPicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElColorPickerElementEventMap>(type: K, listener: (this: HTMLElColorPickerElement, ev: ElColorPickerCustomEvent<HTMLElColorPickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElColorPickerElementEventMap>(type: K, listener: (this: HTMLElColorPickerElement, ev: ElColorPickerCustomEvent<HTMLElColorPickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElColorPickerElement: {
+        prototype: HTMLElColorPickerElement;
+        new (): HTMLElColorPickerElement;
+    };
+    interface HTMLElCommandElement extends Components.ElCommand, HTMLStencilElement {
+    }
+    var HTMLElCommandElement: {
+        prototype: HTMLElCommandElement;
+        new (): HTMLElCommandElement;
+    };
+    interface HTMLElContainerElement extends Components.ElContainer, HTMLStencilElement {
+    }
+    var HTMLElContainerElement: {
+        prototype: HTMLElContainerElement;
+        new (): HTMLElContainerElement;
+    };
+    interface HTMLElDataGridElement extends Components.ElDataGrid, HTMLStencilElement {
+    }
+    var HTMLElDataGridElement: {
+        prototype: HTMLElDataGridElement;
+        new (): HTMLElDataGridElement;
+    };
+    interface HTMLElDatePickerElement extends Components.ElDatePicker, HTMLStencilElement {
+    }
+    var HTMLElDatePickerElement: {
+        prototype: HTMLElDatePickerElement;
+        new (): HTMLElDatePickerElement;
+    };
+    interface HTMLElDrawerElementEventMap {
+        "elClose": void;
+    }
+    interface HTMLElDrawerElement extends Components.ElDrawer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElDrawerElementEventMap>(type: K, listener: (this: HTMLElDrawerElement, ev: ElDrawerCustomEvent<HTMLElDrawerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElDrawerElementEventMap>(type: K, listener: (this: HTMLElDrawerElement, ev: ElDrawerCustomEvent<HTMLElDrawerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElDrawerElement: {
+        prototype: HTMLElDrawerElement;
+        new (): HTMLElDrawerElement;
+    };
+    interface HTMLElDropdownElement extends Components.ElDropdown, HTMLStencilElement {
+    }
+    var HTMLElDropdownElement: {
+        prototype: HTMLElDropdownElement;
+        new (): HTMLElDropdownElement;
+    };
+    interface HTMLElEmptyStateElement extends Components.ElEmptyState, HTMLStencilElement {
+    }
+    var HTMLElEmptyStateElement: {
+        prototype: HTMLElEmptyStateElement;
+        new (): HTMLElEmptyStateElement;
+    };
+    interface HTMLElFileUploadElementEventMap {
+        "elChange": File[];
+    }
+    interface HTMLElFileUploadElement extends Components.ElFileUpload, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElFileUploadElementEventMap>(type: K, listener: (this: HTMLElFileUploadElement, ev: ElFileUploadCustomEvent<HTMLElFileUploadElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElFileUploadElementEventMap>(type: K, listener: (this: HTMLElFileUploadElement, ev: ElFileUploadCustomEvent<HTMLElFileUploadElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElFileUploadElement: {
+        prototype: HTMLElFileUploadElement;
+        new (): HTMLElFileUploadElement;
+    };
+    interface HTMLElFormElementEventMap {
+        "elSubmit": Event;
+    }
+    interface HTMLElFormElement extends Components.ElForm, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElFormElementEventMap>(type: K, listener: (this: HTMLElFormElement, ev: ElFormCustomEvent<HTMLElFormElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElFormElementEventMap>(type: K, listener: (this: HTMLElFormElement, ev: ElFormCustomEvent<HTMLElFormElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElFormElement: {
+        prototype: HTMLElFormElement;
+        new (): HTMLElFormElement;
+    };
+    interface HTMLElFormFieldElement extends Components.ElFormField, HTMLStencilElement {
+    }
+    var HTMLElFormFieldElement: {
+        prototype: HTMLElFormFieldElement;
+        new (): HTMLElFormFieldElement;
+    };
+    interface HTMLElGridElement extends Components.ElGrid, HTMLStencilElement {
+    }
+    var HTMLElGridElement: {
+        prototype: HTMLElGridElement;
+        new (): HTMLElGridElement;
+    };
+    interface HTMLElImageElement extends Components.ElImage, HTMLStencilElement {
+    }
+    var HTMLElImageElement: {
+        prototype: HTMLElImageElement;
+        new (): HTMLElImageElement;
+    };
+    interface HTMLElInputElementEventMap {
+        "elInput": string;
+        "elChange": string;
+    }
+    interface HTMLElInputElement extends Components.ElInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElInputElementEventMap>(type: K, listener: (this: HTMLElInputElement, ev: ElInputCustomEvent<HTMLElInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElInputElementEventMap>(type: K, listener: (this: HTMLElInputElement, ev: ElInputCustomEvent<HTMLElInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElInputElement: {
+        prototype: HTMLElInputElement;
+        new (): HTMLElInputElement;
+    };
+    interface HTMLElLabelElement extends Components.ElLabel, HTMLStencilElement {
+    }
+    var HTMLElLabelElement: {
+        prototype: HTMLElLabelElement;
+        new (): HTMLElLabelElement;
+    };
+    interface HTMLElMenuElement extends Components.ElMenu, HTMLStencilElement {
+    }
+    var HTMLElMenuElement: {
+        prototype: HTMLElMenuElement;
+        new (): HTMLElMenuElement;
+    };
+    interface HTMLElMenuItemElement extends Components.ElMenuItem, HTMLStencilElement {
+    }
+    var HTMLElMenuItemElement: {
+        prototype: HTMLElMenuItemElement;
+        new (): HTMLElMenuItemElement;
+    };
+    interface HTMLElModalElementEventMap {
+        "elClose": void;
+    }
+    interface HTMLElModalElement extends Components.ElModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElModalElementEventMap>(type: K, listener: (this: HTMLElModalElement, ev: ElModalCustomEvent<HTMLElModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElModalElementEventMap>(type: K, listener: (this: HTMLElModalElement, ev: ElModalCustomEvent<HTMLElModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElModalElement: {
+        prototype: HTMLElModalElement;
+        new (): HTMLElModalElement;
+    };
+    interface HTMLElNavElement extends Components.ElNav, HTMLStencilElement {
+    }
+    var HTMLElNavElement: {
+        prototype: HTMLElNavElement;
+        new (): HTMLElNavElement;
+    };
+    interface HTMLElPaginationElementEventMap {
+        "elPageChange": number;
+    }
+    interface HTMLElPaginationElement extends Components.ElPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElPaginationElementEventMap>(type: K, listener: (this: HTMLElPaginationElement, ev: ElPaginationCustomEvent<HTMLElPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElPaginationElementEventMap>(type: K, listener: (this: HTMLElPaginationElement, ev: ElPaginationCustomEvent<HTMLElPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElPaginationElement: {
+        prototype: HTMLElPaginationElement;
+        new (): HTMLElPaginationElement;
+    };
+    interface HTMLElPopoverElement extends Components.ElPopover, HTMLStencilElement {
+    }
+    var HTMLElPopoverElement: {
+        prototype: HTMLElPopoverElement;
+        new (): HTMLElPopoverElement;
+    };
+    interface HTMLElPortalElement extends Components.ElPortal, HTMLStencilElement {
+    }
+    var HTMLElPortalElement: {
+        prototype: HTMLElPortalElement;
+        new (): HTMLElPortalElement;
+    };
+    interface HTMLElProgressElement extends Components.ElProgress, HTMLStencilElement {
+    }
+    var HTMLElProgressElement: {
+        prototype: HTMLElProgressElement;
+        new (): HTMLElProgressElement;
+    };
+    interface HTMLElRatingElementEventMap {
+        "elChange": number;
+    }
+    interface HTMLElRatingElement extends Components.ElRating, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElRatingElementEventMap>(type: K, listener: (this: HTMLElRatingElement, ev: ElRatingCustomEvent<HTMLElRatingElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElRatingElementEventMap>(type: K, listener: (this: HTMLElRatingElement, ev: ElRatingCustomEvent<HTMLElRatingElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElRatingElement: {
+        prototype: HTMLElRatingElement;
+        new (): HTMLElRatingElement;
+    };
+    interface HTMLElSearchElementEventMap {
+        "elSearch": string;
+        "elClear": void;
+    }
+    interface HTMLElSearchElement extends Components.ElSearch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElSearchElementEventMap>(type: K, listener: (this: HTMLElSearchElement, ev: ElSearchCustomEvent<HTMLElSearchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElSearchElementEventMap>(type: K, listener: (this: HTMLElSearchElement, ev: ElSearchCustomEvent<HTMLElSearchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElSearchElement: {
+        prototype: HTMLElSearchElement;
+        new (): HTMLElSearchElement;
+    };
+    interface HTMLElSelectElementEventMap {
+        "elChange": string | string[];
+    }
+    interface HTMLElSelectElement extends Components.ElSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElSelectElementEventMap>(type: K, listener: (this: HTMLElSelectElement, ev: ElSelectCustomEvent<HTMLElSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElSelectElementEventMap>(type: K, listener: (this: HTMLElSelectElement, ev: ElSelectCustomEvent<HTMLElSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElSelectElement: {
+        prototype: HTMLElSelectElement;
+        new (): HTMLElSelectElement;
+    };
+    interface HTMLElSidebarElement extends Components.ElSidebar, HTMLStencilElement {
+    }
+    var HTMLElSidebarElement: {
+        prototype: HTMLElSidebarElement;
+        new (): HTMLElSidebarElement;
+    };
+    interface HTMLElSkeletonElement extends Components.ElSkeleton, HTMLStencilElement {
+    }
+    var HTMLElSkeletonElement: {
+        prototype: HTMLElSkeletonElement;
+        new (): HTMLElSkeletonElement;
+    };
+    interface HTMLElSliderElementEventMap {
+        "elChange": number;
+        "elInput": number;
+    }
+    interface HTMLElSliderElement extends Components.ElSlider, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElSliderElementEventMap>(type: K, listener: (this: HTMLElSliderElement, ev: ElSliderCustomEvent<HTMLElSliderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElSliderElementEventMap>(type: K, listener: (this: HTMLElSliderElement, ev: ElSliderCustomEvent<HTMLElSliderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElSliderElement: {
+        prototype: HTMLElSliderElement;
+        new (): HTMLElSliderElement;
+    };
+    interface HTMLElSpacerElement extends Components.ElSpacer, HTMLStencilElement {
+    }
+    var HTMLElSpacerElement: {
+        prototype: HTMLElSpacerElement;
+        new (): HTMLElSpacerElement;
+    };
+    interface HTMLElStackElement extends Components.ElStack, HTMLStencilElement {
+    }
+    var HTMLElStackElement: {
+        prototype: HTMLElStackElement;
+        new (): HTMLElStackElement;
+    };
+    interface HTMLElStepperElementEventMap {
+        "elStepChange": number;
+    }
+    interface HTMLElStepperElement extends Components.ElStepper, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElStepperElementEventMap>(type: K, listener: (this: HTMLElStepperElement, ev: ElStepperCustomEvent<HTMLElStepperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElStepperElementEventMap>(type: K, listener: (this: HTMLElStepperElement, ev: ElStepperCustomEvent<HTMLElStepperElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElStepperElement: {
+        prototype: HTMLElStepperElement;
+        new (): HTMLElStepperElement;
+    };
+    interface HTMLElSwitchElementEventMap {
+        "elChange": boolean;
+    }
+    interface HTMLElSwitchElement extends Components.ElSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElSwitchElementEventMap>(type: K, listener: (this: HTMLElSwitchElement, ev: ElSwitchCustomEvent<HTMLElSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElSwitchElementEventMap>(type: K, listener: (this: HTMLElSwitchElement, ev: ElSwitchCustomEvent<HTMLElSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElSwitchElement: {
+        prototype: HTMLElSwitchElement;
+        new (): HTMLElSwitchElement;
+    };
+    interface HTMLElTabPanelElement extends Components.ElTabPanel, HTMLStencilElement {
+    }
+    var HTMLElTabPanelElement: {
+        prototype: HTMLElTabPanelElement;
+        new (): HTMLElTabPanelElement;
+    };
+    interface HTMLElTableElement extends Components.ElTable, HTMLStencilElement {
+    }
+    var HTMLElTableElement: {
+        prototype: HTMLElTableElement;
+        new (): HTMLElTableElement;
+    };
+    interface HTMLElTabsElementEventMap {
+        "elTabChange": number;
+    }
+    interface HTMLElTabsElement extends Components.ElTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElTabsElementEventMap>(type: K, listener: (this: HTMLElTabsElement, ev: ElTabsCustomEvent<HTMLElTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElTabsElementEventMap>(type: K, listener: (this: HTMLElTabsElement, ev: ElTabsCustomEvent<HTMLElTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElTabsElement: {
+        prototype: HTMLElTabsElement;
+        new (): HTMLElTabsElement;
+    };
+    interface HTMLElTextareaElementEventMap {
+        "elInput": string;
+        "elChange": string;
+    }
+    interface HTMLElTextareaElement extends Components.ElTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElTextareaElementEventMap>(type: K, listener: (this: HTMLElTextareaElement, ev: ElTextareaCustomEvent<HTMLElTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElTextareaElementEventMap>(type: K, listener: (this: HTMLElTextareaElement, ev: ElTextareaCustomEvent<HTMLElTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElTextareaElement: {
+        prototype: HTMLElTextareaElement;
+        new (): HTMLElTextareaElement;
+    };
+    interface HTMLElTimePickerElement extends Components.ElTimePicker, HTMLStencilElement {
+    }
+    var HTMLElTimePickerElement: {
+        prototype: HTMLElTimePickerElement;
+        new (): HTMLElTimePickerElement;
+    };
+    interface HTMLElToggleGroupElementEventMap {
+        "elChange": string | string[];
+    }
+    interface HTMLElToggleGroupElement extends Components.ElToggleGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLElToggleGroupElementEventMap>(type: K, listener: (this: HTMLElToggleGroupElement, ev: ElToggleGroupCustomEvent<HTMLElToggleGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElToggleGroupElementEventMap>(type: K, listener: (this: HTMLElToggleGroupElement, ev: ElToggleGroupCustomEvent<HTMLElToggleGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLElToggleGroupElement: {
+        prototype: HTMLElToggleGroupElement;
+        new (): HTMLElToggleGroupElement;
+    };
+    interface HTMLElTooltipElement extends Components.ElTooltip, HTMLStencilElement {
+    }
+    var HTMLElTooltipElement: {
+        prototype: HTMLElTooltipElement;
+        new (): HTMLElTooltipElement;
+    };
+    interface HTMLElTransitionElement extends Components.ElTransition, HTMLStencilElement {
+    }
+    var HTMLElTransitionElement: {
+        prototype: HTMLElTransitionElement;
+        new (): HTMLElTransitionElement;
     };
     interface HTMLElementTagNameMap {
-        "ui-button": HTMLUiButtonElement;
+        "el-accordion": HTMLElAccordionElement;
+        "el-accordion-item": HTMLElAccordionItemElement;
+        "el-alert": HTMLElAlertElement;
+        "el-aspect-ratio": HTMLElAspectRatioElement;
+        "el-badge": HTMLElBadgeElement;
+        "el-breadcrumbs": HTMLElBreadcrumbsElement;
+        "el-button": HTMLElButtonElement;
+        "el-calendar": HTMLElCalendarElement;
+        "el-card": HTMLElCardElement;
+        "el-carousel": HTMLElCarouselElement;
+        "el-checkbox": HTMLElCheckboxElement;
+        "el-chip": HTMLElChipElement;
+        "el-color-picker": HTMLElColorPickerElement;
+        "el-command": HTMLElCommandElement;
+        "el-container": HTMLElContainerElement;
+        "el-data-grid": HTMLElDataGridElement;
+        "el-date-picker": HTMLElDatePickerElement;
+        "el-drawer": HTMLElDrawerElement;
+        "el-dropdown": HTMLElDropdownElement;
+        "el-empty-state": HTMLElEmptyStateElement;
+        "el-file-upload": HTMLElFileUploadElement;
+        "el-form": HTMLElFormElement;
+        "el-form-field": HTMLElFormFieldElement;
+        "el-grid": HTMLElGridElement;
+        "el-image": HTMLElImageElement;
+        "el-input": HTMLElInputElement;
+        "el-label": HTMLElLabelElement;
+        "el-menu": HTMLElMenuElement;
+        "el-menu-item": HTMLElMenuItemElement;
+        "el-modal": HTMLElModalElement;
+        "el-nav": HTMLElNavElement;
+        "el-pagination": HTMLElPaginationElement;
+        "el-popover": HTMLElPopoverElement;
+        "el-portal": HTMLElPortalElement;
+        "el-progress": HTMLElProgressElement;
+        "el-rating": HTMLElRatingElement;
+        "el-search": HTMLElSearchElement;
+        "el-select": HTMLElSelectElement;
+        "el-sidebar": HTMLElSidebarElement;
+        "el-skeleton": HTMLElSkeletonElement;
+        "el-slider": HTMLElSliderElement;
+        "el-spacer": HTMLElSpacerElement;
+        "el-stack": HTMLElStackElement;
+        "el-stepper": HTMLElStepperElement;
+        "el-switch": HTMLElSwitchElement;
+        "el-tab-panel": HTMLElTabPanelElement;
+        "el-table": HTMLElTableElement;
+        "el-tabs": HTMLElTabsElement;
+        "el-textarea": HTMLElTextareaElement;
+        "el-time-picker": HTMLElTimePickerElement;
+        "el-toggle-group": HTMLElToggleGroupElement;
+        "el-tooltip": HTMLElTooltipElement;
+        "el-transition": HTMLElTransitionElement;
     }
 }
 declare namespace LocalJSX {
-    interface UiButton {
+    interface ElAccordion {
+        /**
+          * Allow multiple items to be open at once
+          * @default false
+         */
+        "multiple"?: boolean;
+    }
+    interface ElAccordionItem {
+        /**
+          * Item heading text
+         */
+        "heading": string;
+        /**
+          * Open state
+          * @default false
+         */
+        "open"?: boolean;
+    }
+    interface ElAlert {
+        /**
+          * Dismissible
+          * @default false
+         */
+        "dismissible"?: boolean;
+        "onElDismiss"?: (event: ElAlertCustomEvent<void>) => void;
+        /**
+          * Visual variant
+          * @default 'info'
+         */
+        "variant"?: 'info' | 'success' | 'warning' | 'error';
+    }
+    interface ElAspectRatio {
+        /**
+          * Aspect ratio
+          * @default '16/9'
+         */
+        "ratio"?: '16/9' | '4/3' | '1/1' | string;
+    }
+    interface ElBadge {
+        /**
+          * Dot-only badge
+          * @default false
+         */
+        "dot"?: boolean;
+        /**
+          * Pill shape
+          * @default false
+         */
+        "pill"?: boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Visual variant
+          * @default 'default'
+         */
+        "variant"?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'info';
+    }
+    interface ElBreadcrumbs {
+        /**
+          * Max items to show before collapsing
+         */
+        "maxItems"?: number;
+        /**
+          * Separator character or element
+          * @default '/'
+         */
+        "separator"?: string;
+    }
+    interface ElButton {
+        /**
+          * Disabled state
+          * @default false
+         */
         "disabled"?: boolean;
-        "size"?: 'small' | 'medium' | 'large';
-        "theme"?: 'primary' | 'secondary' | 'danger';
+        /**
+          * Make button take full width of its container
+          * @default false
+         */
+        "fullWidth"?: boolean;
+        /**
+          * Icon-only button (no text)
+          * @default false
+         */
+        "iconOnly"?: boolean;
+        /**
+          * Loading state
+          * @default false
+         */
+        "loading"?: boolean;
+        /**
+          * Size of the button
+          * @default 'md'
+         */
+        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        /**
+          * Visual variant of the button
+          * @default 'primary'
+         */
+        "variant"?: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger';
+    }
+    interface ElCalendar {
+        /**
+          * Current date
+         */
+        "value"?: Date;
+    }
+    interface ElCard {
+        /**
+          * Clickable state
+          * @default false
+         */
+        "clickable"?: boolean;
+        /**
+          * Hoverable state
+          * @default false
+         */
+        "hoverable"?: boolean;
+        /**
+          * Visual variant
+          * @default 'elevated'
+         */
+        "variant"?: 'elevated' | 'outlined' | 'flat';
+    }
+    interface ElCarousel {
+        /**
+          * Autoplay
+          * @default false
+         */
+        "autoplay"?: boolean;
+        /**
+          * Interval in ms
+          * @default 3000
+         */
+        "interval"?: number;
+        /**
+          * Loop
+          * @default true
+         */
+        "loop"?: boolean;
+        /**
+          * Show arrows
+          * @default true
+         */
+        "showArrows"?: boolean;
+        /**
+          * Show indicators
+          * @default true
+         */
+        "showIndicators"?: boolean;
+    }
+    interface ElCheckbox {
+        /**
+          * Checked state
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Indeterminate state
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        "onElChange"?: (event: ElCheckboxCustomEvent<boolean>) => void;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+    }
+    interface ElChip {
+        /**
+          * Clickable
+          * @default false
+         */
+        "clickable"?: boolean;
+        "onElClick"?: (event: ElChipCustomEvent<void>) => void;
+        "onElRemove"?: (event: ElChipCustomEvent<void>) => void;
+        /**
+          * Removable
+          * @default false
+         */
+        "removable"?: boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Visual variant
+          * @default 'filled'
+         */
+        "variant"?: 'filled' | 'outlined';
+    }
+    interface ElColorPicker {
+        "onElChange"?: (event: ElColorPickerCustomEvent<string>) => void;
+        /**
+          * Current value
+          * @default '#3b82f6'
+         */
+        "value"?: string;
+    }
+    interface ElCommand {
+        /**
+          * Open state
+          * @default false
+         */
+        "open"?: boolean;
+        /**
+          * Placeholder
+          * @default 'Type a command or search...'
+         */
+        "placeholder"?: string;
+    }
+    interface ElContainer {
+        /**
+          * Max width
+          * @default 'lg'
+         */
+        "maxWidth"?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+        /**
+          * Padding
+          * @default true
+         */
+        "padding"?: boolean;
+    }
+    interface ElDataGrid {
+        /**
+          * Filterable
+          * @default false
+         */
+        "filterable"?: boolean;
+        /**
+          * Selectable
+          * @default false
+         */
+        "selectable"?: boolean;
+        /**
+          * Sortable
+          * @default false
+         */
+        "sortable"?: boolean;
+    }
+    interface ElDatePicker {
+        /**
+          * Format
+          * @default 'MM/DD/YYYY'
+         */
+        "format"?: string;
+        /**
+          * Placeholder
+          * @default 'Select date'
+         */
+        "placeholder"?: string;
+        /**
+          * Type
+          * @default 'single'
+         */
+        "type"?: 'single' | 'range';
+    }
+    interface ElDrawer {
+        /**
+          * Closable
+          * @default true
+         */
+        "closable"?: boolean;
+        "onElClose"?: (event: ElDrawerCustomEvent<void>) => void;
+        /**
+          * Open state
+          * @default false
+         */
+        "open"?: boolean;
+        /**
+          * Placement
+          * @default 'right'
+         */
+        "placement"?: 'left' | 'right' | 'top' | 'bottom';
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg' | 'xl';
+    }
+    interface ElDropdown {
+        /**
+          * Placement
+          * @default 'bottom'
+         */
+        "placement"?: 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Trigger
+          * @default 'click'
+         */
+        "trigger"?: 'click' | 'hover';
+    }
+    interface ElEmptyState {
+        /**
+          * Description
+         */
+        "description"?: string;
+        /**
+          * Heading text
+         */
+        "heading"?: string;
+    }
+    interface ElFileUpload {
+        /**
+          * Accept file types
+         */
+        "accept"?: string;
+        /**
+          * Max files
+         */
+        "maxFiles"?: number;
+        /**
+          * Max file size in bytes
+         */
+        "maxSize"?: number;
+        /**
+          * Multiple files
+          * @default false
+         */
+        "multiple"?: boolean;
+        "onElChange"?: (event: ElFileUploadCustomEvent<File[]>) => void;
+        /**
+          * Variant
+          * @default 'dropzone'
+         */
+        "variant"?: 'button' | 'dropzone';
+    }
+    interface ElForm {
+        /**
+          * Layout
+          * @default 'vertical'
+         */
+        "layout"?: 'vertical' | 'horizontal';
+        "onElSubmit"?: (event: ElFormCustomEvent<Event>) => void;
+    }
+    interface ElFormField {
+        /**
+          * Error text (used when no custom error slot is provided)
+         */
+        "error"?: string;
+        /**
+          * Hint text (used when no custom hint slot is provided)
+         */
+        "hint"?: string;
+        /**
+          * Label text (used when no custom label slot is provided)
+         */
+        "label"?: string;
+        /**
+          * Mark the associated control as optional
+          * @default false
+         */
+        "optional"?: boolean;
+        /**
+          * Mark the associated control as required
+          * @default false
+         */
+        "required"?: boolean;
+    }
+    interface ElGrid {
+        /**
+          * Number of columns
+          * @default 'auto'
+         */
+        "cols"?: number | string;
+        /**
+          * Gap size
+          * @default 'var(--el-space-4)'
+         */
+        "gap"?: string;
+        /**
+          * Responsive breakpoints
+          * @default false
+         */
+        "responsive"?: boolean;
+    }
+    interface ElImage {
+        /**
+          * Alt text
+          * @default ''
+         */
+        "alt"?: string;
+        /**
+          * Object fit
+          * @default 'cover'
+         */
+        "fit"?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+        /**
+          * Lazy loading
+          * @default false
+         */
+        "lazy"?: boolean;
+        /**
+          * Image source
+         */
+        "src": string;
+    }
+    interface ElInput {
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Error state
+         */
+        "error"?: string;
+        "onElChange"?: (event: ElInputCustomEvent<string>) => void;
+        "onElInput"?: (event: ElInputCustomEvent<string>) => void;
+        /**
+          * Placeholder text
+         */
+        "placeholder"?: string;
+        /**
+          * Readonly state
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * Required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Input type
+          * @default 'text'
+         */
+        "type"?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search';
+        /**
+          * Current value (uncontrolled for now)
+         */
+        "value"?: string;
+    }
+    interface ElLabel {
+        /**
+          * Id of the form control this label is for
+         */
+        "for"?: string;
+        /**
+          * Mark the associated field as optional
+          * @default false
+         */
+        "optional"?: boolean;
+        /**
+          * Mark the associated field as required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+    }
+    interface ElMenu {
+    }
+    interface ElMenuItem {
+        /**
+          * Active state
+          * @default false
+         */
+        "active"?: boolean;
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Link href
+         */
+        "href"?: string;
+    }
+    interface ElModal {
+        /**
+          * Closable (show close button)
+          * @default true
+         */
+        "closable"?: boolean;
+        /**
+          * Close on backdrop click
+          * @default true
+         */
+        "closeOnBackdrop"?: boolean;
+        "onElClose"?: (event: ElModalCustomEvent<void>) => void;
+        /**
+          * Open state
+          * @default false
+         */
+        "open"?: boolean;
+        /**
+          * Persistent (prevent closing)
+          * @default false
+         */
+        "persistent"?: boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+    }
+    interface ElNav {
+        /**
+          * Variant
+          * @default 'topbar'
+         */
+        "variant"?: 'sidebar' | 'topbar';
+    }
+    interface ElPagination {
+        "onElPageChange"?: (event: ElPaginationCustomEvent<number>) => void;
+        /**
+          * Current page (1-indexed)
+          * @default 1
+         */
+        "page"?: number;
+        /**
+          * Items per page
+          * @default 10
+         */
+        "pageSize"?: number;
+        /**
+          * Show page size changer
+          * @default false
+         */
+        "showSizeChanger"?: boolean;
+        /**
+          * Total number of items
+          * @default 0
+         */
+        "total"?: number;
+    }
+    interface ElPopover {
+        /**
+          * Controlled open state
+          * @default false
+         */
+        "open"?: boolean;
+        /**
+          * Placement
+          * @default 'bottom'
+         */
+        "placement"?: 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Trigger
+          * @default 'click'
+         */
+        "trigger"?: 'click' | 'hover' | 'focus';
+    }
+    interface ElPortal {
+        /**
+          * Target selector or element
+          * @default 'body'
+         */
+        "target"?: string;
+    }
+    interface ElProgress {
+        /**
+          * Indeterminate state
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        /**
+          * Max value
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * Show value text
+          * @default false
+         */
+        "showValue"?: boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Current value (0-100)
+          * @default 0
+         */
+        "value"?: number;
+        /**
+          * Visual variant
+          * @default 'bar'
+         */
+        "variant"?: 'bar' | 'circle';
+    }
+    interface ElRating {
+        /**
+          * Max rating
+          * @default 5
+         */
+        "max"?: number;
+        "onElChange"?: (event: ElRatingCustomEvent<number>) => void;
+        /**
+          * Readonly
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Current value
+          * @default 0
+         */
+        "value"?: number;
+    }
+    interface ElSearch {
+        /**
+          * Debounce delay in ms
+          * @default 300
+         */
+        "debounce"?: number;
+        "onElClear"?: (event: ElSearchCustomEvent<void>) => void;
+        "onElSearch"?: (event: ElSearchCustomEvent<string>) => void;
+        /**
+          * Placeholder
+          * @default 'Search...'
+         */
+        "placeholder"?: string;
+        /**
+          * Current value
+          * @default ''
+         */
+        "value"?: string;
+    }
+    interface ElSelect {
+        /**
+          * Disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Multiple selection
+          * @default false
+         */
+        "multiple"?: boolean;
+        "onElChange"?: (event: ElSelectCustomEvent<string | string[]>) => void;
+        /**
+          * Placeholder
+          * @default 'Select...'
+         */
+        "placeholder"?: string;
+        /**
+          * Searchable
+          * @default false
+         */
+        "searchable"?: boolean;
+        /**
+          * Size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Current value
+         */
+        "value"?: string | string[];
+    }
+    interface ElSidebar {
+        /**
+          * Collapsed state
+          * @default false
+         */
+        "collapsed"?: boolean;
+        /**
+          * Collapsible
+          * @default false
+         */
+        "collapsible"?: boolean;
+        /**
+          * Placement
+          * @default 'left'
+         */
+        "placement"?: 'left' | 'right';
+    }
+    interface ElSkeleton {
+        /**
+          * Height
+         */
+        "height"?: string;
+        /**
+          * Number of rows (for text variant)
+          * @default 1
+         */
+        "rows"?: number;
+        /**
+          * Visual variant
+          * @default 'text'
+         */
+        "variant"?: 'text' | 'circle' | 'rectangle';
+        /**
+          * Width
+         */
+        "width"?: string;
+    }
+    interface ElSlider {
+        /**
+          * Disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Max value
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * Min value
+          * @default 0
+         */
+        "min"?: number;
+        "onElChange"?: (event: ElSliderCustomEvent<number>) => void;
+        "onElInput"?: (event: ElSliderCustomEvent<number>) => void;
+        /**
+          * Step
+          * @default 1
+         */
+        "step"?: number;
+        /**
+          * Current value
+          * @default 0
+         */
+        "value"?: number;
+    }
+    interface ElSpacer {
+        /**
+          * Size from spacing scale
+          * @default 'var(--el-space-4)'
+         */
+        "size"?: string;
+    }
+    interface ElStack {
+        /**
+          * Align items
+         */
+        "align"?: 'start' | 'center' | 'end' | 'stretch';
+        /**
+          * Direction
+          * @default 'vertical'
+         */
+        "direction"?: 'vertical' | 'horizontal';
+        /**
+          * Justify content
+         */
+        "justify"?: 'start' | 'center' | 'end' | 'between' | 'around';
+        /**
+          * Spacing
+          * @default 'var(--el-space-4)'
+         */
+        "spacing"?: string;
+    }
+    interface ElStepper {
+        /**
+          * Current step (0-indexed)
+          * @default 0
+         */
+        "currentStep"?: number;
+        "onElStepChange"?: (event: ElStepperCustomEvent<number>) => void;
+        /**
+          * Variant
+          * @default 'horizontal'
+         */
+        "variant"?: 'horizontal' | 'vertical';
+    }
+    interface ElSwitch {
+        /**
+          * Checked state
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled"?: boolean;
+        "onElChange"?: (event: ElSwitchCustomEvent<boolean>) => void;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+    }
+    interface ElTabPanel {
+        /**
+          * Active state
+          * @default false
+         */
+        "active"?: boolean;
+        /**
+          * Tab label
+         */
+        "label": string;
+    }
+    interface ElTable {
+        /**
+          * Bordered
+          * @default false
+         */
+        "bordered"?: boolean;
+        /**
+          * Hoverable rows
+          * @default false
+         */
+        "hoverable"?: boolean;
+        /**
+          * Striped rows
+          * @default false
+         */
+        "striped"?: boolean;
+    }
+    interface ElTabs {
+        /**
+          * Active tab index
+          * @default 0
+         */
+        "activeTab"?: number;
+        "onElTabChange"?: (event: ElTabsCustomEvent<number>) => void;
+        /**
+          * Visual variant
+          * @default 'line'
+         */
+        "variant"?: 'line' | 'enclosed' | 'pills';
+    }
+    interface ElTextarea {
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Error text
+         */
+        "error"?: string;
+        /**
+          * Max length for the value
+         */
+        "maxLength"?: number;
+        "onElChange"?: (event: ElTextareaCustomEvent<string>) => void;
+        "onElInput"?: (event: ElTextareaCustomEvent<string>) => void;
+        /**
+          * Readonly state
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * Whether the textarea is resizable
+          * @default 'vertical'
+         */
+        "resize"?: 'none' | 'vertical' | 'horizontal' | 'both';
+        /**
+          * Number of rows
+          * @default 3
+         */
+        "rows"?: number;
+        /**
+          * Visual size
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Current value (uncontrolled for now)
+         */
+        "value"?: string;
+    }
+    interface ElTimePicker {
+        /**
+          * Format
+          * @default '12h'
+         */
+        "format"?: '12h' | '24h';
+        /**
+          * Placeholder
+          * @default 'Select time'
+         */
+        "placeholder"?: string;
+    }
+    interface ElToggleGroup {
+        "onElChange"?: (event: ElToggleGroupCustomEvent<string | string[]>) => void;
+        /**
+          * Selection type
+          * @default 'single'
+         */
+        "type"?: 'single' | 'multiple';
+        /**
+          * Current value(s)
+         */
+        "value"?: string | string[];
+    }
+    interface ElTooltip {
+        /**
+          * Tooltip content text
+         */
+        "content"?: string;
+        /**
+          * Placement
+          * @default 'top'
+         */
+        "placement"?: 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Trigger
+          * @default 'hover'
+         */
+        "trigger"?: 'hover' | 'click' | 'focus';
+    }
+    interface ElTransition {
+        /**
+          * Duration in ms
+          * @default 200
+         */
+        "duration"?: number;
+        /**
+          * Show state
+          * @default true
+         */
+        "show"?: boolean;
+        /**
+          * Variant
+          * @default 'fade'
+         */
+        "variant"?: 'fade' | 'slide' | 'scale' | 'collapse';
     }
     interface IntrinsicElements {
-        "ui-button": UiButton;
+        "el-accordion": ElAccordion;
+        "el-accordion-item": ElAccordionItem;
+        "el-alert": ElAlert;
+        "el-aspect-ratio": ElAspectRatio;
+        "el-badge": ElBadge;
+        "el-breadcrumbs": ElBreadcrumbs;
+        "el-button": ElButton;
+        "el-calendar": ElCalendar;
+        "el-card": ElCard;
+        "el-carousel": ElCarousel;
+        "el-checkbox": ElCheckbox;
+        "el-chip": ElChip;
+        "el-color-picker": ElColorPicker;
+        "el-command": ElCommand;
+        "el-container": ElContainer;
+        "el-data-grid": ElDataGrid;
+        "el-date-picker": ElDatePicker;
+        "el-drawer": ElDrawer;
+        "el-dropdown": ElDropdown;
+        "el-empty-state": ElEmptyState;
+        "el-file-upload": ElFileUpload;
+        "el-form": ElForm;
+        "el-form-field": ElFormField;
+        "el-grid": ElGrid;
+        "el-image": ElImage;
+        "el-input": ElInput;
+        "el-label": ElLabel;
+        "el-menu": ElMenu;
+        "el-menu-item": ElMenuItem;
+        "el-modal": ElModal;
+        "el-nav": ElNav;
+        "el-pagination": ElPagination;
+        "el-popover": ElPopover;
+        "el-portal": ElPortal;
+        "el-progress": ElProgress;
+        "el-rating": ElRating;
+        "el-search": ElSearch;
+        "el-select": ElSelect;
+        "el-sidebar": ElSidebar;
+        "el-skeleton": ElSkeleton;
+        "el-slider": ElSlider;
+        "el-spacer": ElSpacer;
+        "el-stack": ElStack;
+        "el-stepper": ElStepper;
+        "el-switch": ElSwitch;
+        "el-tab-panel": ElTabPanel;
+        "el-table": ElTable;
+        "el-tabs": ElTabs;
+        "el-textarea": ElTextarea;
+        "el-time-picker": ElTimePicker;
+        "el-toggle-group": ElToggleGroup;
+        "el-tooltip": ElTooltip;
+        "el-transition": ElTransition;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ui-button": LocalJSX.UiButton & JSXBase.HTMLAttributes<HTMLUiButtonElement>;
+            "el-accordion": LocalJSX.ElAccordion & JSXBase.HTMLAttributes<HTMLElAccordionElement>;
+            "el-accordion-item": LocalJSX.ElAccordionItem & JSXBase.HTMLAttributes<HTMLElAccordionItemElement>;
+            "el-alert": LocalJSX.ElAlert & JSXBase.HTMLAttributes<HTMLElAlertElement>;
+            "el-aspect-ratio": LocalJSX.ElAspectRatio & JSXBase.HTMLAttributes<HTMLElAspectRatioElement>;
+            "el-badge": LocalJSX.ElBadge & JSXBase.HTMLAttributes<HTMLElBadgeElement>;
+            "el-breadcrumbs": LocalJSX.ElBreadcrumbs & JSXBase.HTMLAttributes<HTMLElBreadcrumbsElement>;
+            "el-button": LocalJSX.ElButton & JSXBase.HTMLAttributes<HTMLElButtonElement>;
+            "el-calendar": LocalJSX.ElCalendar & JSXBase.HTMLAttributes<HTMLElCalendarElement>;
+            "el-card": LocalJSX.ElCard & JSXBase.HTMLAttributes<HTMLElCardElement>;
+            "el-carousel": LocalJSX.ElCarousel & JSXBase.HTMLAttributes<HTMLElCarouselElement>;
+            "el-checkbox": LocalJSX.ElCheckbox & JSXBase.HTMLAttributes<HTMLElCheckboxElement>;
+            "el-chip": LocalJSX.ElChip & JSXBase.HTMLAttributes<HTMLElChipElement>;
+            "el-color-picker": LocalJSX.ElColorPicker & JSXBase.HTMLAttributes<HTMLElColorPickerElement>;
+            "el-command": LocalJSX.ElCommand & JSXBase.HTMLAttributes<HTMLElCommandElement>;
+            "el-container": LocalJSX.ElContainer & JSXBase.HTMLAttributes<HTMLElContainerElement>;
+            "el-data-grid": LocalJSX.ElDataGrid & JSXBase.HTMLAttributes<HTMLElDataGridElement>;
+            "el-date-picker": LocalJSX.ElDatePicker & JSXBase.HTMLAttributes<HTMLElDatePickerElement>;
+            "el-drawer": LocalJSX.ElDrawer & JSXBase.HTMLAttributes<HTMLElDrawerElement>;
+            "el-dropdown": LocalJSX.ElDropdown & JSXBase.HTMLAttributes<HTMLElDropdownElement>;
+            "el-empty-state": LocalJSX.ElEmptyState & JSXBase.HTMLAttributes<HTMLElEmptyStateElement>;
+            "el-file-upload": LocalJSX.ElFileUpload & JSXBase.HTMLAttributes<HTMLElFileUploadElement>;
+            "el-form": LocalJSX.ElForm & JSXBase.HTMLAttributes<HTMLElFormElement>;
+            "el-form-field": LocalJSX.ElFormField & JSXBase.HTMLAttributes<HTMLElFormFieldElement>;
+            "el-grid": LocalJSX.ElGrid & JSXBase.HTMLAttributes<HTMLElGridElement>;
+            "el-image": LocalJSX.ElImage & JSXBase.HTMLAttributes<HTMLElImageElement>;
+            "el-input": LocalJSX.ElInput & JSXBase.HTMLAttributes<HTMLElInputElement>;
+            "el-label": LocalJSX.ElLabel & JSXBase.HTMLAttributes<HTMLElLabelElement>;
+            "el-menu": LocalJSX.ElMenu & JSXBase.HTMLAttributes<HTMLElMenuElement>;
+            "el-menu-item": LocalJSX.ElMenuItem & JSXBase.HTMLAttributes<HTMLElMenuItemElement>;
+            "el-modal": LocalJSX.ElModal & JSXBase.HTMLAttributes<HTMLElModalElement>;
+            "el-nav": LocalJSX.ElNav & JSXBase.HTMLAttributes<HTMLElNavElement>;
+            "el-pagination": LocalJSX.ElPagination & JSXBase.HTMLAttributes<HTMLElPaginationElement>;
+            "el-popover": LocalJSX.ElPopover & JSXBase.HTMLAttributes<HTMLElPopoverElement>;
+            "el-portal": LocalJSX.ElPortal & JSXBase.HTMLAttributes<HTMLElPortalElement>;
+            "el-progress": LocalJSX.ElProgress & JSXBase.HTMLAttributes<HTMLElProgressElement>;
+            "el-rating": LocalJSX.ElRating & JSXBase.HTMLAttributes<HTMLElRatingElement>;
+            "el-search": LocalJSX.ElSearch & JSXBase.HTMLAttributes<HTMLElSearchElement>;
+            "el-select": LocalJSX.ElSelect & JSXBase.HTMLAttributes<HTMLElSelectElement>;
+            "el-sidebar": LocalJSX.ElSidebar & JSXBase.HTMLAttributes<HTMLElSidebarElement>;
+            "el-skeleton": LocalJSX.ElSkeleton & JSXBase.HTMLAttributes<HTMLElSkeletonElement>;
+            "el-slider": LocalJSX.ElSlider & JSXBase.HTMLAttributes<HTMLElSliderElement>;
+            "el-spacer": LocalJSX.ElSpacer & JSXBase.HTMLAttributes<HTMLElSpacerElement>;
+            "el-stack": LocalJSX.ElStack & JSXBase.HTMLAttributes<HTMLElStackElement>;
+            "el-stepper": LocalJSX.ElStepper & JSXBase.HTMLAttributes<HTMLElStepperElement>;
+            "el-switch": LocalJSX.ElSwitch & JSXBase.HTMLAttributes<HTMLElSwitchElement>;
+            "el-tab-panel": LocalJSX.ElTabPanel & JSXBase.HTMLAttributes<HTMLElTabPanelElement>;
+            "el-table": LocalJSX.ElTable & JSXBase.HTMLAttributes<HTMLElTableElement>;
+            "el-tabs": LocalJSX.ElTabs & JSXBase.HTMLAttributes<HTMLElTabsElement>;
+            "el-textarea": LocalJSX.ElTextarea & JSXBase.HTMLAttributes<HTMLElTextareaElement>;
+            "el-time-picker": LocalJSX.ElTimePicker & JSXBase.HTMLAttributes<HTMLElTimePickerElement>;
+            "el-toggle-group": LocalJSX.ElToggleGroup & JSXBase.HTMLAttributes<HTMLElToggleGroupElement>;
+            "el-tooltip": LocalJSX.ElTooltip & JSXBase.HTMLAttributes<HTMLElTooltipElement>;
+            "el-transition": LocalJSX.ElTransition & JSXBase.HTMLAttributes<HTMLElTransitionElement>;
         }
     }
 }
